@@ -1,27 +1,23 @@
-const userInfo = {name:'Brian Gomez'}
 
-let productosUsuario = [
-    { id: 1, name: 'Producto 1', description: 'Descripción del producto 1', commentsCount: 3 },
-    { id: 2, name: 'Producto 2', description: 'Descripción del producto 2', commentsCount: 7 },
-    // Ejemplo solo para ver que esta funcionando
-];
+const {user, products} = require("../data/simulacion");
+
 
 module.exports = {
     // Ejemplos
     index: function(req, res) {
         
-        res.render('index', { title: 'Express', products: productosUsuario , user: userInfo });
+        res.render('index', { title: 'Express', products , user });
     },
     login: function(req, res) {
-        res.render('login', { user: userInfo } );
+        res.render('login', { user } );
     },
     register: function(req, res) {
-        res.render('register', { user: userInfo } );
+        res.render('register', { user } );
     },
     search: function(req, res) {
-        res.render('search-results', { user: userInfo } );
+        res.render('search-results', { user } );
     },
     productDetail: function(req, res) {
-        res.render('product', { user: userInfo } );
+        res.render('product', { user } );
     }
 };

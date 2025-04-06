@@ -1,25 +1,20 @@
-const userInfo = {name:'Brian Gomez'}
 
-let productosUsuario = [
-    { id: 1, name: 'Producto 1', description: 'Descripción del producto 1', commentsCount: 3 },
-    { id: 2, name: 'Producto 2', description: 'Descripción del producto 2', commentsCount: 7 },
-    // Ejemplo solo para ver que esta funcionando
-];
+const {user, products} = require("../data/simulacion");
 
 module.exports = {
     // Ejemplos
     profile: function(req, res) {
-        res.render('profile', {user: userInfo, products: productosUsuario});
+        res.render('profile', {user, products});
     },
     loginForm: function(req, res) {
-        res.render('login');
+        res.render('login', {user});
     },
     registerForm: function(req, res) {
-        res.render('register');
+        res.render('register', {user} );
     },
     loginProcess: function(req, res) {
         
-        res.redirect('/users/profile');
+        res.redirect('/users/profile', {user} );
     },
     registerProcess: function(req, res) {
         
@@ -27,6 +22,6 @@ module.exports = {
     },
     editProfile: function(req, res) {
         const userInfo = {name:'Brian Gomez'}
-        res.render('profile-edit', {user: userInfo});
+        res.render('profile-edit', {user} );
     }    
 };
