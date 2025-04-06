@@ -85,11 +85,45 @@
 				<h2 class="products-title">Registrate</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de registro. <br>
+			<h2 class="col-12"> <i>
+
+			<!--///////////////////////////////////////// <br> Acá va el formulario de registro. <br>
 			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos <br>
 			Eliminen estás líneas y coloquen el formulario. <br>
 			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
+			////////////////-->
+
+			<br> 
+			<form action="/users/register" method="get">
+				<div>
+					<label for="email" >Email:</label>
+					<input type="email" id="email" name="email" required>
+				</div>
+				<div>
+					<label for="username" >Usuario:</label>
+					<input type="text" id="username" name="username" required>
+				</div>
+				<div>
+					<label for="password" >Contraseña:</label>
+					<input type="password" id="password" name="password" required>
+				</div>
+				<div>
+					<label for="fechaNacimiento" >Fecha de nacimiento:</label>
+					<input type="date" id="fechaNacimiento" name="fechaNacimiento" >
+				</div>
+				<div>
+					<label for="dni" >Nro de documento:</label>
+					<input type="number" id="dni" name="dni" >
+				</div>
+				<div>
+					<label for="fotoPerfil" >Foto de perfil (URL):</label>
+					<input type="text" id="fotoPerfil" name="fotoPerfil" >
+				</div>
+
+				<button type="submit">Registrarme</button>
+			</form> 
+			<br>
+
 			</h2>
 
 
