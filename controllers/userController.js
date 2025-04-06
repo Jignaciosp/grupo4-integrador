@@ -1,0 +1,23 @@
+module.exports = {
+    // Ejemplos
+    profile: function(req, res) {
+        res.render('profile');
+    },
+    loginForm: function(req, res) {
+        res.render('login');
+    },
+    registerForm: function(req, res) {
+        res.render('register');
+    },
+    loginProcess: function(req, res) {
+        
+        res.redirect('/users/profile');
+    },
+    registerProcess: function(req, res) {
+        
+        res.redirect('/');
+    },
+    editProfile: function(req, res) {
+        res.render('profile-edit');
+    }    
+};
