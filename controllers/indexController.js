@@ -6,7 +6,7 @@ module.exports = {
     // Ejemplos
     index: function(req, res) {
         
-        res.render('index', { title: 'Express', products , user });
+        res.render('index', { title: 'Express', products , user, logeado: true });
     },
     login: function(req, res) {
         res.render('login', { user } );
