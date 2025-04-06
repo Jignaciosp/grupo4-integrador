@@ -19,6 +19,7 @@ module.exports = {
         res.redirect('/');
     },
     editProfile: function(req, res) {
-        res.render('profile-edit');
+        const userInfo = {name:'Brian Gomez'}
+        res.render('profile-edit', {user: userInfo});
     }    
 };

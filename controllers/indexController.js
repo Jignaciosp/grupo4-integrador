@@ -1,3 +1,5 @@
+const userInfo = {name:'Brian Gomez'}
+
 module.exports = {
     // Ejemplos
     index: function(req, res) {
@@ -6,18 +8,18 @@ module.exports = {
             { id: 2, name: 'Producto 2', description: 'Descripción del producto 2', commentsCount: 7 },
             // Ejemplo solo para ver que esta funcionando
         ];
-        res.render('index', { title: 'Express', products });
+        res.render('index', { title: 'Express', products, user: userInfo });
     },
     login: function(req, res) {
-        res.render('login');
+        res.render('login', { user: userInfo } );
     },
     register: function(req, res) {
-        res.render('register');
+        res.render('register', { user: userInfo } );
     },
     search: function(req, res) {
-        res.render('search-results');
+        res.render('search-results', { user: userInfo } );
     },
     productDetail: function(req, res) {
-        res.render('product');
+        res.render('product', { user: userInfo } );
     }
 };
