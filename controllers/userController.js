@@ -1,7 +1,8 @@
 module.exports = {
     // Ejemplos
     profile: function(req, res) {
-        res.render('profile');
+        const userInfo = {name:'Brian Gomez'}
+        res.render('profile', {user: userInfo});
     },
     loginForm: function(req, res) {
         res.render('login');
