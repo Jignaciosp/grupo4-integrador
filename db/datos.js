@@ -1,5 +1,5 @@
 const datos = {
-    usuarios: {
+    usuarios:[ {
         email: "brian@mail.com",
         usuario: "Brian",
         password: "12345678",
@@ -7,6 +7,35 @@ const datos = {
         documento: 45123456,
         fotoPerfil: "default-image.png"
       },
+      {
+        email: "olivia@mail.com",
+        usuario: "Olivia",
+        password: "23456789",
+        fechaNacimiento: "2005-10-14",
+        documento: 46123456,
+        fotoPerfil: "default-image.png"
+      },{
+        email: "mariana@mail.com",
+        usuario: "Mariana",
+        password: "87654321",
+        fechaNacimiento: "2006-06-12",
+        documento: 46234567,
+        fotoPerfil: "default-image.png"
+      },{
+        email: "ignacio@mail.com",
+        usuario: "Ignacio",
+        password: "98765432",
+        fechaNacimiento: "2005-03-07",
+        documento: 45234567,
+        fotoPerfil: "default-image.png"
+      },{
+        email: "luis@mail.com",
+        usuario: "Luis",
+        password: "24682468",
+        fechaNacimiento: "2003-08-20",
+        documento: 43123456,
+        fotoPerfil: "default-image.png"
+      }],
       productos: [
         {
             id: 1,
