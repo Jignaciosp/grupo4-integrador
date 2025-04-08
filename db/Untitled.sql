@@ -105,40 +105,85 @@ INSERT INTO productos VALUES(
 (
 	DEFAULT,
     "la descripcion",
-    2
+    2,
+    "img.png",
+    "nombre",
+    null,
+    null,
+    null
 ),
 (
 	DEFAULT,
     "la descripcion",
-    3
+    3,
+    "img.png",
+    "nombre",
+    null,
+    null,
+    null
 ),
 (	DEFAULT,
     "la descripcion",
-    4
+    4,
+    "img.png",
+    "nombre",
+    null,
+    null,
+    null
 ),
 (	DEFAULT,
     "la descripcion",
-    5
+    5,
+    "img.png",
+    "nombre",
+    null,
+    null,
+    null
 ),
 (	DEFAULT,
     "la descripcion",
-    1
+    1,
+    "img.png",
+    "nombre",
+    null,
+    null,
+    null
 ),
 (	DEFAULT,
     "la descripcion",
-    2
+    2,
+    "img.png",
+    "nombre",
+    null,
+    null,
+    null
 ),
 (	DEFAULT,
     "la descripcion",
-    3
+    3,
+    "img.png",
+    "nombre",
+    null,
+    null,
+    null
 ),
 (	DEFAULT,
     "la descripcion",
-    4
+    4,
+    "img.png",
+    "nombre",
+    null,
+    null,
+    null
 ),
 (	DEFAULT,
     "la descripcion",
-    5
+    5,
+    "img.png",
+    "nombre",
+    null,
+    null,
+    null
 );
 
 INSERT INTO comentarios VALUES(
