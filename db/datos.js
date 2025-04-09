@@ -10,28 +10,28 @@ const datos = {
       {
         email: "olivia@mail.com",
         usuario: "Olivia",
-        password: "23456789",
+        password: "12345678",
         fechaNacimiento: "2005-10-14",
         documento: 46123456,
         fotoPerfil: "default-image.png"
       },{
         email: "mariana@mail.com",
         usuario: "Mariana",
-        password: "87654321",
+        password: "12345678",
         fechaNacimiento: "2006-06-12",
         documento: 46234567,
         fotoPerfil: "default-image.png"
       },{
         email: "ignacio@mail.com",
         usuario: "Ignacio",
-        password: "98765432",
+        password: "12345678",
         fechaNacimiento: "2005-03-07",
         documento: 45234567,
         fotoPerfil: "default-image.png"
       },{
         email: "luis@mail.com",
         usuario: "Luis",
-        password: "24682468",
+        password: "12345678",
         fechaNacimiento: "2003-08-20",
         documento: 43123456,
         fotoPerfil: "default-image.png"
