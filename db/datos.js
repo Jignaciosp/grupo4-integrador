@@ -147,7 +147,7 @@ const datos = {
         for (let i = 0; i < this.productos.length; i++) {
             const element = this.productos[i];
             if (prodBuscado.toLowerCase() in element.nombre.toLowerCase()) {
-                prodBuscado.push(element)
+                prodEncontrado.push(element)
             } 
         
         }
