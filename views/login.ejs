@@ -17,8 +17,10 @@
 </head>
 
 <body>
-
+<!-- Header -->
+		<!-- utilizo el partial header asi se comporta de la misma manera en todas las paginas -->
 	<%- include('partials/headerLogueado') %>
+<!-- /Header -->
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
@@ -28,30 +30,28 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-				
-				<!-- <i>///////////////////////////////////////// <br> Acá va el formulario de login. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			//////////////// -->
-
 				<form action="/users/login" method="get">
-					<!-- method="post", por ahora es solo get par ala primera entrega -->
-					<div><label for="email">Email:</label>
-						<input type="email" id="email" name="email" required>
+					<div>
+						<label for="User:">Usuario: </label>
+						<input id="email" type="email" name="" value=""> 
 					</div>
-					<div><label for="password">Contraseña:</label>
-						<input type="password" id="password" name="password" required>
+					<div>
+						<label for="Password:">Contraseña: </label>
+						<input id="password" type="password" name="" value=""> 
 					</div>
-
-					<button type="submit">Ingresar</button>
-				</form>
+					<div>
+						<label for="checkbox:">Checkbox: </label>
+						<input id="checkbox" type="checkbox" name="" value="recordarme">
+					</div>
+					 <div>
+						<button type="submit">Submit</button> 
+					 </div>
 
 			</h2>
 
-
+<!-- footer -->
 <%- include('partials/footer') %>
-
+<!-- /footer -->
 </body>
 
 </html>
