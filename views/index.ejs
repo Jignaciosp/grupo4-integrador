@@ -15,8 +15,10 @@
 	<link rel="stylesheet" href="/stylesheets/app.css">
 </head>
 <body>
-
-<%- include('partials/header') %>
+<!-- Header -->
+	 	<!-- utilizo el partial header asi se comporta de la misma manera en todas las paginas -->
+		 <%- include('./partials/header') %>
+		 <!-- /Header -->
 	
 	<!-- Banner -->
 	<div class="banner">
@@ -51,8 +53,9 @@
 		<% } %>
 		</div>
 	</div>
-
-	<%- include('partials/footer') %>
-
+<!-- footer -->
+	<!-- utilizo el partial footer asi se comporta de la misma manera en todas las paginas -->
+	<%- include('./partials/footer') %>
+	<!-- /footer -->
 </body>	
 </html>

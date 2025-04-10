@@ -18,7 +18,10 @@
 
 <body>
 
-	<%- include('partials/headerLogueado') %>
+	<!-- Header -->
+		<!-- utilizo el partial header asi se comporta de la misma manera en todas las paginas -->
+		<%- include('./partials/headerLogueado') %>
+	<!-- /Header -->
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
@@ -28,24 +31,17 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-				
-			<!-- <i>///////////////////////////////////////// <br> Acá va el formulario para agregar prodcutos al catálogo. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos. <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2> -->
 
-			<form action="/products/create" method="get">
+			<form action="/" method="get">
 				<!-- Por ahora va get, en la primera entrega -->
 				<div>
-					<label for="image">Imagen del producto:</label>
-					<input type="file" id="image" name="image" required>
+					<label for="imagen">Imagen del producto:</label>
+					<input type="file" id="imagen" name="imagen" required>
 				</div>
 
 				<div>
 					<label for="name">Nombre del producto:</label>
-					<input type="text" id="name" name="name" required>
+					<input type="text" id="nombre" name="nombre" required>
 				</div>
 
 				<div>
@@ -56,9 +52,10 @@
 				<button type="submit">Agregar</button>
 			</form>
 
-
-<%- include('partials/footer') %>
-
+<!-- footer -->
+	<!-- utilizo el partial footer asi se comporta de la misma manera en todas las paginas -->
+	<%- include('./partials/footer') %>
+	<!-- /footer -->
 </body>
 
 </html>

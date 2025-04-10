@@ -17,7 +17,7 @@
 <body>
 <!-- Header -->
 		<!-- utilizo el partial header asi se comporta de la misma manera en todas las paginas -->
-	<%- include('partials/headerLogueado') %>
+<%- include('./partials/header') %>
 <!-- /Header -->
 
 	<!-- product detail -->
@@ -61,8 +61,10 @@
 		</div>
 	</div>
 	<!-- /product detail -->
-
-<%- include('partials/footer') %>
+<!-- footer -->
+	<!-- utilizo el partial footer asi se comporta de la misma manera en todas las paginas -->
+	<%- include('./partials/footer') %>
+	<!-- /footer -->
 
 </body>	
 </html>
