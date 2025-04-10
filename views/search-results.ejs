@@ -17,8 +17,10 @@
 </head>
 
 <body>
-
-<%- include('partials/headerLogueado') %>
+<!-- Header -->
+	<!-- utilizo el partial header asi se comporta de la misma manera en todas las paginas -->
+	<%- include('./partials/header') %>
+	<!-- /Header -->
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
@@ -27,9 +29,25 @@
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá van los resultados de búsqueda. <br>
-			Eliminen estás líneas y cosntruyan la página de resultados de búsqueda. <br>
-			////////////////
+			<h2 class="col-12"> 
+				<p>Acá van a aparecer los productos relacionados con tu búsqueda, en la proxima entrega funcionara de manera dinamica, ahora solo sera estatica</p>
+				<% for( let i = 0; i < 3; i++ ) { %>
+					<div class="col-12 col-sm-6 col-lg-3">
+						<section class="product-box">
+							<a href="/product/id/1">
+								<figure class="product-box_image">
+									<img src="/images/products/<%= productos[i].imagen%>" alt="cafetera moulinex">
+								</figure>
+								<article class="product-box_data">
+									<h2><%= productos[i].nombre  %></h2>
+									<p><%= productos[i].descripcion %></p>
+									<p>Comentarios: 12</p>
+								</article>
+							</a>
+						</section>
+					</div>
+			<% } %>
+	
 			</h2>
 
 

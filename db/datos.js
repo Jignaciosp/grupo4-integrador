@@ -141,6 +141,17 @@ const datos = {
             }
         }
         return idEncontrado
+      },
+      filtrarBusqueda:function (prodBuscado) {
+        let prodEncontrado = [];
+        for (let i = 0; i < this.productos.length; i++) {
+            const element = this.productos[i];
+            if (prodBuscado.toLowerCase() in element.nombre.toLowerCase()) {
+                prodBuscado.push(element)
+            } 
+        
+        }
+        return prodEncontrado;
       }
 }
 module.exports = datos;

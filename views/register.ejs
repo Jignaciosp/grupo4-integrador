@@ -17,8 +17,10 @@
 </head>
 
 <body>
-	
-	<%- include('partials/headerLogueado') %>
+	<!-- Header -->
+	<!-- utilizo el partial header asi se comporta de la misma manera en todas las paginas -->
+	<%- include('./partials/header') %>
+	<!-- /Header -->
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
@@ -27,16 +29,9 @@
 				<h2 class="products-title">Registrate</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>
+			<h2 class="col-12"> 
 
-			<!--///////////////////////////////////////// <br> Acá va el formulario de registro. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////-->
-
-			<br> 
-			<form action="/users/register" method="get">
+			<form action="/user/login" method="get" class="formRegister">
 				<div>
 					<label for="email" >Email:</label>
 					<input type="email" id="email" name="email" required>
@@ -61,14 +56,15 @@
 					<label for="fotoPerfil" >Foto de perfil (URL):</label>
 					<input type="text" id="fotoPerfil" name="fotoPerfil" >
 				</div>
-
+			
 				<button type="submit">Registrarme</button>
 			</form> 
-			<br>
+		</h2 class="col-12"> 
 
-			</h2>
-
-<%- include('partials/footer') %>
+	<!-- footer -->
+	<!-- utilizo el partial footer asi se comporta de la misma manera en todas las paginas -->
+	<%- include('./partials/footer') %>
+	<!-- /footer -->
 </body>
 
 </html>
