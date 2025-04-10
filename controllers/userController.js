@@ -1,5 +1,4 @@
-
-const {user, products} = require("../data/simulacion");
+const datos = require("../db/datos");
 
 module.exports = {
     // Ejemplos
