@@ -2,8 +2,7 @@ const datos = require("../db/datos");
 const userController = {
     login: function(req, res){
         return res.render('login', 
-            {usuario: datos.usuarios,
-                usuario: datos.usuarios, 
+            {usuario: datos.usuarios, 
                 productos: datos.productos,
         })
     },

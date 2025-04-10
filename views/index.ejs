@@ -16,16 +16,10 @@
 </head>
 <body>
 
-	<% if (logeado) { %>
-		<%- include('partials/headerLogueado') %>
-	<% } else { %>
-		<%- include('partials/header') %>
-	<% } %>
-	
+<%- include('partials/header') %>
 	
 	<!-- Banner -->
 	<div class="banner">
-		<img src="/images/img-home-banner.jpg" alt="Banner de ofertas">
 	</div>
 	<!-- /Banner -->
 
@@ -38,22 +32,23 @@
 			<!-- Show the "ultimos" products -->
 			 
 			<!--Hice que los productos se muestren de manera dinamica-->
-			<% for (let i = 0; i < products.length; i++) { %>
+			<% for( let i = 0; i < productos.length; i++ ) { %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="/product/<%= products[i].id %>">
-							<figure class="product-box_image">
-								<img src="/images/products/default-image.png" alt="<%= products[i].name %>">
-							</figure>
-							<article class="product-box_data">
-								<h2><%= products[i].name %></h2>
-								<p><%= products[i].description %></p>
-								<p>Comentarios: 12</p>
-							</article>
-						</a>
+							<a href="/product/id/<%= productos[i].id %>">
+								<figure class="product-box_image">
+									<img src="/images/products/<%= productos[i].imagen %>" alt="">
+								</figure>
+								<article class="product-box_data">
+									<h2><%= productos[i].nombre  %></h2>
+									<p><%= productos[i].descripcion %></p>
+									<p>Comentarios: 12</p>
+								</article>
+							</a>
+						
 					</section>
 				</div>
-			<% } %>
+		<% } %>
 		</div>
 	</div>
 
