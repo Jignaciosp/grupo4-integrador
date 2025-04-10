@@ -16,9 +16,9 @@
 </head>
 <body>
 <!-- Header -->
-	 	<!-- utilizo el partial header asi se comporta de la misma manera en todas las paginas -->
-		 <%- include('./partials/header') %>
-		 <!-- /Header -->
+	<!-- utilizo el partial header asi se comporta de la misma manera en todas las paginas -->
+		<%- include('./partials/header') %>
+		<!-- /Header -->
 	
 	<!-- Banner -->
 	<div class="banner">
@@ -32,7 +32,7 @@
 				<h2 class="products-title">Productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			 
+			
 			<!--Hice que los productos se muestren de manera dinamica-->
 			<% for( let i = 0; i < productos.length; i++ ) { %>
 				<div class="col-12 col-sm-6 col-lg-3">

@@ -6,8 +6,8 @@ const datos = {
         fechaNacimiento: "2006-04-10",
         documento: 45123456,
         fotoPerfil: "default-image.png"
-      },
-      productos: [
+    },
+    productos: [
         {
             id: 1,
             nombre: "Producto 1",
@@ -78,8 +78,8 @@ const datos = {
             precio: 30,
             descripcion: "Producto 10 default"
         }
-      ],
-      comentarios:[
+    ],
+    comentarios:[
         {
             nombreUsuario: "brian123",
             fotoUsuario: "/images/products/default-image.png",
@@ -131,8 +131,8 @@ const datos = {
             comentario: "Estéticamente hermoso, y muy funcional."
         }
 
-      ],
-      filtrarID: function (idBuscado) {
+    ],
+    filtrarID: function (idBuscado) {
         let idEncontrado = [];
         for (let i = 0; i < this.productos.length; i++) {
             const element = this.productos[i];
@@ -141,8 +141,8 @@ const datos = {
             }
         }
         return idEncontrado
-      },
-      filtrarBusqueda:function (prodBuscado) {
+    },
+    filtrarBusqueda:function (prodBuscado) {
         let prodEncontrado = [];
         for (let i = 0; i < this.productos.length; i++) {
             const element = this.productos[i];
@@ -152,6 +152,6 @@ const datos = {
         
         }
         return prodEncontrado;
-      }
+    }
 }
 module.exports = datos;
