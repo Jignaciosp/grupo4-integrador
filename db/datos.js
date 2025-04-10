@@ -1,7 +1,7 @@
 const datos = {
     usuarios: {
-        email: "mariana@mail.com",
-        usuario: "Mariana",
+        email: "juan@mail.com",
+        usuario: "Juan",
         password: "12345678",
         fechaNacimiento: "2006-04-10",
         documento: 45123456,
