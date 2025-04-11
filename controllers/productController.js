@@ -17,7 +17,7 @@ const productController= {
     return res.render("product",
         {
             detalle: productoFiltrado,
-            comentarios: datos.comentarios
+            infoComentarios: productoFiltrado[0].comentarios
         })
     },
     productAdd: function(req, res){

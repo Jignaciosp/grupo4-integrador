@@ -37,13 +37,13 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% for( let i = 0; i < comentarios.length; i++ ) { %>
+						<% for( let i = 0; i < infoComentarios.length; i++ ) { %>
 							<article>
-								<img src="<%= comentarios[i].fotoUsuario%>" alt="">
+								<img src="<%= infoComentarios[i].fotoUsuario%>" alt="">
 								<div class="data">
 									<p class="user">
-										<strong> <a href="/user/profile"> <%= comentarios[i].nombreUsuario%></a> </strong>
-										<%= comentarios[i].comentario %>
+										<strong> <a href="/user/profile"> <%= infoComentarios[i].nombreUsuario%></a> </strong>
+										<%= infoComentarios[i].comentario %>
 									</p>
 								</div>
 							</article>
