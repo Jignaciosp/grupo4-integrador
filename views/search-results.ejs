@@ -31,12 +31,12 @@
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
 				<p>Acá van a aparecer los productos relacionados con tu búsqueda, en la proxima entrega funcionara de manera dinamica, ahora solo sera estatica</p>
-				<% for( let i = 0; i < 3; i++ ) { %>
+				<% for( let i = 0; i < 10; i++ ) { %>
 					<div class="col-12 col-sm-6 col-lg-3">
 						<section class="product-box">
-							<a href="/product/id/1">
+							<a href="/product/id/<%= productos[i].id %>">
 								<figure class="product-box_image">
-									<img src="/images/products/<%= productos[i].imagen%>" alt="cafetera moulinex">
+									<img src="/images/products/<%= productos[i].imagen%>" alt="">
 								</figure>
 								<article class="product-box_data">
 									<h2><%= productos[i].nombre  %></h2>
