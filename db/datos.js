@@ -47,7 +47,7 @@ const datos = {
         {
             id: 4,
             nombre: "Pan dulce",
-            imagen: "pandulceTorta",
+            imagen: "pandulceTorta.jpg",
             precio: 50,
             descripcion: "pan dulce",
             comentarios:[{
