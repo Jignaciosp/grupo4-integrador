@@ -18,7 +18,9 @@ h1, h2, h3, .site-title {
   font-family: var(--title-font-family);
 }
 
-
+.comments .user a {
+  font-weight: bold;
+}
 
 /*====== Basics ======*/
 * {
@@ -47,8 +49,22 @@ ol {
 
 a {
   display: inline-block;
-  text-decoration: none;
+  text-decoration:none;
   color: inherit;
+}
+.left-navbar a,
+.right-navbar a {
+  color: black; /* Forzamos a que los links tengan buen color base */
+  transition: all 0.3s ease;
+}
+
+.left-navbar a:hover,
+.right-navbar a:hover {
+  color: var(--dark-blue); /* Morado pastel al pasar el mouse */
+  background-color: var(--light-gray); /* Blanco vainilla */
+  border-radius: 5px;
+  padding: 4px 8px;
+  text-decoration: underline;
 }
 
 figure {
@@ -547,4 +563,17 @@ textarea.form-input {
     width: 95%;
     margin: auto;
   }
+}
+
+.comments .user a {
+  font-weight: bold;
+  color: var(--light-blue);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* 🔁 Efecto cuando pasás el mouse */
+.comments .user a:hover {
+  color: var(--light-blue);
+  text-decoration: underline;
 }
