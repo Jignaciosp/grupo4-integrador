@@ -10,22 +10,22 @@ const datos = {
     productos: [
         {
             id: 1,
-            nombre: "Producto 1",
-            imagen: "default-image.png",
+            nombre: "Torta tres leches",
+            imagen: "treslechesTorta.jpg",
             precio: 10,
-            descripcion: "Producto 1 default",
+            descripcion: "torta tres leches",
             comentarios:[{
                 nombreUsuario: "brian123",
                 fotoUsuario: "/images/products/default-image.png",
-                comentario: "Me encanta este modelo, siempre quise uno."
+                comentario: "Me encanta esta torta, super recomendada!"
             }]
         },
         {
             id: 2,
-            nombre: "Cafetera",
-            imagen: "img-cafetera-moulinex.jpg",
+            nombre: "Torta de naranja",
+            imagen: "tortanaranja.jpg",
             precio: 20,
-            descripcion: "Producto 2 cafetera",
+            descripcion: "torta de naranja",
             comentarios:[{
                 nombreUsuario: "mariana123",
                 fotoUsuario: "/images/products/default-image.png",
@@ -34,10 +34,10 @@ const datos = {
         },
         {
             id: 3,
-            nombre: "Macbook",
-            imagen: "img-macbook-pro-2019.jpg",
+            nombre: "Budin de chocolate",
+            imagen: "budinChocolate.jpg",
             precio: 40,
-            descripcion: "Producto 3 macbook",
+            descripcion: "budin de chocolate",
             comentarios:[{
                 nombreUsuario: "luli_rock",
                 fotoUsuario: "/images/products/default-image.png",
@@ -46,34 +46,34 @@ const datos = {
         },
         {
             id: 4,
-            nombre: "Tv Galaxy",
-            imagen: "img-samsung-galaxy-s10.jpg",
+            nombre: "Pan dulce",
+            imagen: "pandulceTorta",
             precio: 50,
-            descripcion: "Producto 4 tv samsung galaxy",
+            descripcion: "pan dulce",
             comentarios:[{
                 nombreUsuario: "juanma_dev",
                 fotoUsuario: "/images/products/default-image.png",
-                comentario: "Perfecto para lo que necesito. Recomendado."                                          
+                comentario: "Perfecto para las fiestas. Recomendado."                                          
             }]
         },
         {
             id: 5,
-            nombre: "Tv Smart",
-            imagen: "img-tv-samsung-smart.jpg",
+            nombre: "Torta rogel",
+            imagen: "rogelTorta.jpg",
             precio: 60,
-            descripcion: "Producto 4 tv samsung smart",
+            descripcion: "torta rogel",
             comentarios:[{
                 nombreUsuario: "sofi.gamer",
                 fotoUsuario: "/images/products/default-image.png",
-                comentario: "Los colores y el diseño son lo mejor."                          
+                comentario: "Muy rica."                          
             }]
         },
         {
             id: 6,
-            nombre: "Producto 6",
-            imagen: "default-image.png",
+            nombre: "Torta selva negra",
+            imagen: "selvanegraTorta.jpg",
             precio: 10,
-            descripcion: "Producto 6 default",
+            descripcion: "Torta selva negra",
             comentarios:[{
                 nombreUsuario: "martinOk",
                 fotoUsuario: "/images/products/default-image.png",
@@ -82,34 +82,34 @@ const datos = {
         },
         {
             id: 7,
-            nombre: "Producto 7",
-            imagen: "default-image.png",
+            nombre: "Torta de coco",
+            imagen: "tartaCoco.jpg",
             precio: 140,
-            descripcion: "Producto 7 default",
+            descripcion: "Torta de coco",
             comentarios:[{
                 nombreUsuario: "cami27",
                 fotoUsuario: "/images/products/default-image.png",
-                comentario: "Súper cómodo y liviano, me encantó."                
+                comentario: "Me encantó."                
             }]
         },
         {
             id: 8,
-            nombre: "Producto 8",
-            imagen: "default-image.png",
+            nombre: "Torta de arandanos y durazno",
+            imagen: "tartaduraznosArandanos.jpg",
             precio: 10,
-            descripcion: "Producto 8 default",
+            descripcion: "Torta de arandanos y durazno",
             comentarios:[{
                 nombreUsuario: "elias.tech",
                 fotoUsuario: "/images/products/default-image.png",
-                comentario: "Rinde excelente para el trabajo diario."               
+                comentario: "deliciosa, muy buena calidad."               
             }]
         },
         {
             id: 9,
-            nombre: "Producto 9",
-            imagen: "default-image.png",
+            nombre: "Tarta de manzana",
+            imagen: "tartamanzanaTorta.jpg",
             precio: 10,
-            descripcion: "Producto 9 default",
+            descripcion: "Tarta de manzana",
             comentarios:[{
                 nombreUsuario: "juli_ramone",
                 fotoUsuario: "/images/products/default-image.png",
@@ -118,14 +118,14 @@ const datos = {
         },
         {
             id: 10,
-            nombre: "Producto 10",
-            imagen: "default-image.png",
+            nombre: "Torta de frutos rojos",
+            imagen: "tortafrutosrojosTorta.jpg",
             precio: 30,
-            descripcion: "Producto 10 default",
+            descripcion: "Torta de frutos rojos",
             comentarios:[{
                 nombreUsuario: "nati.design",
                 fotoUsuario: "/images/products/default-image.png",
-                comentario: "Estéticamente hermoso, y muy funcional."                
+                comentario: "Estéticamente hermoso, gran sabor."                
             }]
         }
     ],
