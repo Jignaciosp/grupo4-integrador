@@ -1,12 +1,41 @@
 const datos = {
     usuarios: {
-        email: "juan@mail.com",
-        usuario: "Juan",
+        email: "brian@mail.com",
+        usuario: "Brian123",
         password: "12345678",
         fechaNacimiento: "2006-04-10",
         documento: 45123456,
         fotoPerfil: "default-image.png"
+    },usuarios: {
+        email: "olivia@mail.com",
+        usuario: "Olivia",
+        password: "12345678",
+        fechaNacimiento: "2006-04-10",
+        documento: 46123456,
+        fotoPerfil: "default-image.png"
+    },usuarios: {
+        email: "mariana@mail.com",
+        usuario: "Mariana",
+        password: "12345678",
+        fechaNacimiento: "2006-04-10",
+        documento: 46234567,
+        fotoPerfil: "default-image.png"
+    },usuarios: {
+        email: "ignacio@mail.com",
+        usuario: "Ignacio",
+        password: "12345678",
+        fechaNacimiento: "2006-04-10",
+        documento: 45234567,
+        fotoPerfil: "default-image.png"
+    },usuarios: {
+        email: "luis@mail.com",
+        usuario: "Luis",
+        password: "12345678",
+        fechaNacimiento: "2006-04-10",
+        documento: 43123456,
+        fotoPerfil: "default-image.png"
     },
+
     productos: [
         {
             id: 1,
@@ -27,7 +56,7 @@ const datos = {
             precio: 20,
             descripcion: "torta de naranja",
             comentarios:[{
-                nombreUsuario: "mariana123",
+                nombreUsuario: "brian123",
                 fotoUsuario: "/images/products/default-image.png",
                 comentario: "Recomendadisimo! Me re gusto"                
             }]
