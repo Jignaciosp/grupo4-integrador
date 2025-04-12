@@ -4,14 +4,20 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #EAC926;
-  --dark-blue: #03264C;
-  --light-blue: #1259c3;
-  --gray: #666666;
-  --light-gray: #ebebeb;
-  --green: #39b54a;
-  --base-font-family: 'Roboto', sans-serif
+  --yellow: #e9787a;         /* fondo rosa pastel */
+  --dark-blue: #8b5e83;      /* morado pastel */
+  --light-blue: #b45153;     /* lavanda clara */
+  --gray: #5e4b4b;           /* marrón chocolate */
+  --light-gray: #fffaf0;     /* blanco vainilla */
+  --green: #f4a7b9;          /* rosado suave para botones o acento */
+  --base-font-family: 'EB Garamond', serif;
+  --title-font-family: 'Dancing Script', cursive;
 }
+
+h1, h2, h3, .site-title {
+  font-family: var(--title-font-family);
+}
+
 
 
 /*====== Basics ======*/
