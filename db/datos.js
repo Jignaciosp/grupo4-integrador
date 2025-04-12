@@ -42,23 +42,44 @@ const datos = {
             nombre: "Torta tres leches",
             imagen: "treslechesTorta.jpg",
             precio: 10,
-            descripcion: "torta tres leches",
+            descripcion: "Bizcochuelo suave bañado en una mezcla de tres leches, con crema y un toque de canela. Húmeda, dulce y absolutamente irresistible.",
             comentarios:[{
                 nombreUsuario: "brian123",
                 fotoUsuario: "/images/products/default-image.png",
                 comentario: "Me encanta esta torta, super recomendada!"
-            }]
+            },
+            {
+                nombreUsuario: "Olivia",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "¡Exquisita! La torta de chocolate fue un éxito total en el cumpleaños de mi hijo."
+            },
+            {
+                nombreUsuario: "Mariana",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "Una bomba de sabor. Se nota que usan ingredientes de calidad."
+            }
+            ]
         },
         {
             id: 2,
             nombre: "Torta de naranja",
             imagen: "tortanaranja.jpg",
             precio: 20,
-            descripcion: "torta de naranja",
+            descripcion: "Esponjosa, con aroma cítrico y sabor fresco. Un clásico liviano y lleno de sabor natural.",
             comentarios:[{
-                nombreUsuario: "brian123",
+                nombreUsuario: "Ignacio",
                 fotoUsuario: "/images/products/default-image.png",
-                comentario: "Recomendadisimo! Me re gusto"                
+                comentario: "La presentación es impecable, parece de revista. ¡Y encima riquísima!"                
+            },
+            {
+                nombreUsuario: "Luis",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "Llega siempre a tiempo y perfecta. ¡Nunca fallan!"                
+            },
+            {
+                nombreUsuario: "Brian123",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "Ideal para regalar. Me salvaron con un envío express para un cumpleaños sorpresa."                
             }]
         },
         {
@@ -66,11 +87,21 @@ const datos = {
             nombre: "Budin de chocolate",
             imagen: "budinChocolate.jpg",
             precio: 40,
-            descripcion: "budin de chocolate",
+            descripcion: "Húmedo, intenso y súper chocolatoso. Ideal para acompañar el café o disfrutar como snack dulce.",
             comentarios:[{
-                nombreUsuario: "luli_rock",
+                nombreUsuario: "Olivia",
                 fotoUsuario: "/images/products/default-image.png",
                 comentario: "Lo compré y me sorprendió la calidad."                   
+            },
+            {
+                nombreUsuario: "Mariana",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "No soy fan de las tortas, pero esta me encantó. ¡Eso dice mucho!"                   
+            },
+            {
+                nombreUsuario: "Ignacio",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "Atención excelente y predisposición para adaptar la torta a lo que pedí."                   
             }]
         },
         {
@@ -78,11 +109,21 @@ const datos = {
             nombre: "Pan dulce",
             imagen: "pandulceTorta.jpg",
             precio: 50,
-            descripcion: "pan dulce",
+            descripcion: "Clásico de fin de año, con masa suave y esponjosa, frutas abrillantadas y frutos secos. Aromático, tierno y festivo.",
             comentarios:[{
-                nombreUsuario: "juanma_dev",
+                nombreUsuario: "Luis",
                 fotoUsuario: "/images/products/default-image.png",
                 comentario: "Perfecto para las fiestas. Recomendado."                                          
+            },
+            {
+                nombreUsuario: "Brian123",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "Mi familia quedó fascinada. ¡Ya quieren repetir!"                   
+            },
+            {
+                nombreUsuario: "Olivia",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "Buen balance entre lo dulce y lo suave. No empalaga."                   
             }]
         },
         {
@@ -90,11 +131,21 @@ const datos = {
             nombre: "Torta rogel",
             imagen: "rogelTorta.jpg",
             precio: 60,
-            descripcion: "torta rogel",
+            descripcion: "Capas finas de masa crocante, dulce de leche cremoso y merengue italiano. Crocante, dulce y totalmente irresistible.",
             comentarios:[{
-                nombreUsuario: "sofi.gamer",
+                nombreUsuario: "Mariana",
                 fotoUsuario: "/images/products/default-image.png",
-                comentario: "Muy rica."                          
+                comentario: "Hermosa estética y sabor casero. Se nota el amor que le ponen."                          
+            },
+            {
+                nombreUsuario: "Ignacio",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "La torta llegó intacta, bien embalada. ¡Un lujo!"                   
+            },
+            {
+                nombreUsuario: "Luis",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "Puntuales, atentos y el sabor… inolvidable."                   
             }]
         },
         {
@@ -102,11 +153,21 @@ const datos = {
             nombre: "Torta selva negra",
             imagen: "selvanegraTorta.jpg",
             precio: 10,
-            descripcion: "Torta selva negra",
+            descripcion: "Clásica torta alemana con bizcochuelo de chocolate, crema chantilly y cerezas. Intensa, suave y deliciosa.",
             comentarios:[{
-                nombreUsuario: "martinOk",
+                nombreUsuario: "Brian123",
                 fotoUsuario: "/images/products/default-image.png",
-                comentario: "Es justo lo que estaba buscando."                               
+                comentario: "Ideal para eventos, ¡mis invitados no dejaron ni las migas!"                               
+            },
+            {
+                nombreUsuario: "Olivia",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "El sabor es casero, nada industrial. Y eso se agradece."                   
+            },
+            {
+                nombreUsuario: "Mariana",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "Muy buena relación calidad-precio"                   
             }]
         },
         {
@@ -114,11 +175,21 @@ const datos = {
             nombre: "Torta de coco",
             imagen: "tartaCoco.jpg",
             precio: 140,
-            descripcion: "Torta de coco",
+            descripcion: "Bizcochuelo húmedo, crema suave y coco rallado. Delicada, aromática y tentadora.",
             comentarios:[{
-                nombreUsuario: "cami27",
+                nombreUsuario: "Ignacio",
                 fotoUsuario: "/images/products/default-image.png",
-                comentario: "Me encantó."                
+                comentario: "Una obra de arte. No sabía si comerla o enmarcarla."                
+            },
+            {
+                nombreUsuario: "Luis",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "Recomiendo 100%. ¡Hasta mis hijos, que son re exigentes, la amaron!"                   
+            },
+            {
+                nombreUsuario: "Brian123",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "La combinación de sabores es perfecta. No se siente pesada, ideal para después de una comida."                   
             }]
         },
         {
@@ -126,11 +197,21 @@ const datos = {
             nombre: "Torta de arandanos y durazno",
             imagen: "tartaduraznosArandanos.jpg",
             precio: 10,
-            descripcion: "Torta de arandanos y durazno",
+            descripcion: "Bizcochuelo esponjoso, crema suave y frutas frescas. Dulce, frutal y súper fresca.",
             comentarios:[{
-                nombreUsuario: "elias.tech",
+                nombreUsuario: "Olivia",
                 fotoUsuario: "/images/products/default-image.png",
-                comentario: "deliciosa, muy buena calidad."               
+                comentario: "¡Riquísima! La pedí para mi aniversario y fue el broche de oro."               
+            },
+            {
+                nombreUsuario: "Mariana",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "Hice el pedido desde el exterior para sorprender a mi familia y salió todo genial."                   
+            },
+            {
+                nombreUsuario: "Ignacio",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "Mis invitados me preguntaron de dónde era la torta. ¡Ya pasé el dato!"                   
             }]
         },
         {
@@ -138,11 +219,21 @@ const datos = {
             nombre: "Tarta de manzana",
             imagen: "tartamanzanaTorta.jpg",
             precio: 10,
-            descripcion: "Tarta de manzana",
+            descripcion: "Masa crocante, manzanas caramelizadas y un toque de canela. Clásica, casera y siempre deliciosa.",
             comentarios:[{
-                nombreUsuario: "juli_ramone",
+                nombreUsuario: "Luis",
                 fotoUsuario: "/images/products/default-image.png",
-                comentario: "Muy buena atención y entrega rápida."                  
+                comentario: "Buenísima opción para quienes buscan algo artesanal y distinto a lo industrial"                  
+            },
+            {
+                nombreUsuario: "Brian123",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "Liviana, fresca y nada empalagosa. ¡Un golazo!"                   
+            },
+            {
+                nombreUsuario: "Olivia",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "¡La torta duró 10 minutos en la mesa! Todos repitieron."                   
             }]
         },
         {
@@ -150,11 +241,21 @@ const datos = {
             nombre: "Torta de frutos rojos",
             imagen: "tortafrutosrojosTorta.jpg",
             precio: 30,
-            descripcion: "Torta de frutos rojos",
+            descripcion: "Bizcochuelo suave con crema chantilly y un mix de frambuesas, arándanos, moras y frutillas frescas. Ligera, fresca y con el equilibrio justo entre dulce y ácido. Ideal para cualquier ocasión.",
             comentarios:[{
-                nombreUsuario: "nati.design",
+                nombreUsuario: "Mariana",
                 fotoUsuario: "/images/products/default-image.png",
                 comentario: "Estéticamente hermoso, gran sabor."                
+            },
+            {
+                nombreUsuario: "Ignacio",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "¡Una delicia! Ya estoy pensando cuál pedir la próxima vez."                   
+            },
+            {
+                nombreUsuario: "Luis",
+                fotoUsuario: "/images/products/default-image.png",
+                comentario: "Aceptaron el pedido con poco tiempo de anticipación y lo resolvieron de maravilla."                   
             }]
         }
     ],
