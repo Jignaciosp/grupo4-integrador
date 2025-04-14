@@ -17,11 +17,6 @@
 h1, h2, h3, .site-title {
   font-family: var(--title-font-family);
 }
-form label,
-form input,
-form button {
-  font-weight: normal;
-}
 
 .comments .user a {
   font-weight: bold;
