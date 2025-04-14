@@ -145,10 +145,7 @@ hr {
 .logoContainer a img {
   width: 140px;
   height: 140px;
-  margin: -30px;
-
- 
-  
+  margin-top: -30px;
 }
 
 
@@ -584,6 +581,11 @@ textarea.form-input {
   text-decoration: underline;
 }
 
-.imgCambiadas{
+.imgProduct{
   height: auto;
+}
+
+.imgPerfil{
+  height: auto;
+  border-radius: 50%;
 }
