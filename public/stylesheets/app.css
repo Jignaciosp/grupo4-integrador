@@ -21,6 +21,11 @@ h1, h2, h3, .site-title {
 .comments .user a {
   font-weight: bold;
 }
+form label,
+form input,
+form button {
+  font-weight: normal;
+}
 
 /*====== Basics ======*/
 * {
