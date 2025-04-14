@@ -583,3 +583,7 @@ textarea.form-input {
   color: var(--light-blue);
   text-decoration: underline;
 }
+
+.imgCambiadas{
+  height: auto;
+}
