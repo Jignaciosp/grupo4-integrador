@@ -595,4 +595,12 @@ textarea.form-input {
     width: 100%;
     height: auto;
   }
+
+  .imgPerfil{
+    margin-left: -50px;
+    margin-top: 50px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+  }
 }
