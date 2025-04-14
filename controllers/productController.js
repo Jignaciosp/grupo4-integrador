@@ -7,8 +7,7 @@ const productController= {
             info: datos.productos
         })
     },
-
-
+    
     filtrarID: function (req,res) {
         let IDbuscado= req.params.id;
         let productoFiltrado= datos.filtrarID(IDbuscado);
