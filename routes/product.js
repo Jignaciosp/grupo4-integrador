@@ -1,6 +1,6 @@
-var express = require('express');
+var express = require('express');//importo express 
 var router = express.Router();
-const productController = require('../controllers/productController');
+const productController = require('../controllers/productController');// delego la logica al controller correspondiente
 
 router.get('/', productController.index);
 
@@ -8,7 +8,6 @@ router.get('/id/:id', productController.filtrarID);
 router.get('/add', productController.productAdd);
 
 
-module.exports = router;
+module.exports = router;//exporto el router para ser usado en app.js
 
 
-module.exports = router;
