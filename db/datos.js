@@ -259,7 +259,7 @@ const datos = {
             }]
         }
     ],
-    filtrarID: function (idBuscado) {
+    filtrarID: function (idBuscado) { // hace que el codigo sea dinamico
         let idEncontrado = [];
         for (let i = 0; i < this.productos.length; i++) {
             const element = this.productos[i];
@@ -269,7 +269,7 @@ const datos = {
         }
         return idEncontrado
     },
-    filtrarBusqueda:function (prodBuscado) {
+    filtrarBusqueda:function (prodBuscado) {// lo hace dinamico pero lo utilizaremos en la segunda entregga
         let prodEncontrado = [];
         for (let i = 0; i < this.productos.length; i++) {
             const element = this.productos[i];
