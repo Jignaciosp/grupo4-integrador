@@ -8,7 +8,7 @@ var mainRouter = require('./routes/main'); // configuro enrutadores
 var userRouter = require('./routes/user');// configuro enrutadores
 var productRouter = require('./routes/product');// configuro enrutadores
 
-var app = express(); //--> funcion de alto nivel
+var app = express(); //--> funcion de alto nivel.
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
