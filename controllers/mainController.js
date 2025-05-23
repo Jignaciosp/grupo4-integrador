@@ -1,21 +1,17 @@
+const db = require('../database/models');
+const Producto = db.Producto;
 
-const datos = require("../db/datos");
 const mainController = {
     index: function (req, res) {
-        return res.render("index", {
-            productos: datos.productos,
-        });
-    },
-    searchResults: function (req, res) {
-        return res.render("search-results", {
-            productos: datos.productos,
-        });
-    },
-
-
+        Producto.findAll({
+            include: [{ association: 'usuario' }]
+        })
+        .then(productos => {
+            return res.render("index", { productos });
+        })
+        .catch(error => res.send(error));
+    }
 };
-
-
 module.exports = mainController;
 
 

@@ -1,36 +1,42 @@
+const db = require('../database/models');
+const Producto = db.Producto;
+const Usuario = db.Usuario;
 
-const datos = require("../db/datos")
+const productController = {
 
-const productController= {
-    index: function(req,res) {
-        return res.render("product", {
-            info: datos.productos
+    index: function(req, res) {
+        Producto.findAll({
+            include: ['usuario']
         })
-    },
-    
-    filtrarID: function (req,res) {
-        let IDbuscado= req.params.id;
-        let productoFiltrado= datos.filtrarID(IDbuscado);
-
-
-    return res.render("product",
-        {
-            detalle: productoFiltrado,
-            infoComentarios: productoFiltrado[0].comentarios
+        .then(productos => {
+            return res.render("product", {
+                info: productos
+            });
         })
-    },
-    productAdd: function(req, res){
-        return res.render('productAdd', {
-            productos: datos.productos,
-            usuario: datos.usuarios
-        })
+        .catch(error => res.send(error));
     },
 
+    filtrarID: function (req, res) {
+        let IDbuscado = req.params.id;
 
+        Producto.findByPk(IDbuscado, {
+            include: ['usuario', 'comentarios'] // opcional si vas a mostrar comentarios
+        })
+        .then(producto => {
+            if (!producto) return res.send("Producto no encontrado");
 
+            return res.render("product", {
+                detalle: producto,
+                infoComentarios: producto.comentarios || [] // opcional
+            });
+        })
+        .catch(error => res.send(error));
+    },
 
-}
-
+    productAdd: function(req, res) {
+        return res.render('productAdd');
+    }
+};
 
 module.exports = productController;
 
