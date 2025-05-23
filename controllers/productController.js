@@ -1,3 +1,4 @@
+//pregunta si esta bien
 const db = require('../database/models');
 const Producto = db.Producto;
 const Usuario = db.Usuario;
@@ -20,7 +21,7 @@ const productController = {
         let IDbuscado = req.params.id;
 
         Producto.findByPk(IDbuscado, {
-            include: ['usuario', 'comentarios'] // opcional si vas a mostrar comentarios
+            include: ['usuario', 'comentarios'] // opcional si a muestro comentariso
         })
         .then(producto => {
             if (!producto) return res.send("Producto no encontrado");
