@@ -4,6 +4,7 @@ module.exports = {
     "password": "",
     //OJO ACA QUE NO ES MOVIES_DB, ES EL NOMBRE QUE LE PUSIMOS AL SQL!!!!!!!
     "database": "integradorgrupo4",
+    //IMPORTANTISIMO, sin esto te da error porque no estas accediendo al sql correspondiente
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

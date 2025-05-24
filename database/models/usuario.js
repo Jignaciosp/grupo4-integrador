@@ -11,6 +11,10 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.STRING(250),
             allowNull: false
         },
+        nombreUsuario:{
+            type: dataTypes.STRING(250),
+            allowNull: false
+        },
         contrasenia: {
             type: dataTypes.STRING(500),
             allowNull: false

@@ -37,18 +37,22 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% for( let i = 0; i < infoComentarios.length; i++ ) { %>
-							<article>
-								<img class="imgProduct" src="<%= infoComentarios[i].fotoUsuario%>" alt="">
-								<div class="data">
-									<p class="user">
-										<strong> <a href="/user/profile"> <%= infoComentarios[i].nombreUsuario%></a> </strong>
-										<%= infoComentarios[i].comentario %>
-									</p>
-								</div>
-							</article>
-
+						<% for(let i = 0; i < infoComentarios.length; i++) { %>
+						<article>
+							<img class="imgProduct" src="/images/users/<%= infoComentarios[i].usuario.foto %>" alt="">
+							<div class="data">
+								<p class="user">
+									<strong>
+										<a href="/user/profile">
+											<%= infoComentarios[i].usuario.nombreUsuario %>
+										</a>
+									</strong>
+									<%= infoComentarios[i].comentario %>
+								</p>
+							</div>
+						</article>
 						<% } %>
+
 
 					</section>
 					<form class="form" action="" method="POST">
