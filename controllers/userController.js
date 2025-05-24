@@ -70,7 +70,22 @@ const usersController = {
     logout: function (req, res) {
         res.clearCookie("userEmail");
         req.session.destroy(() => res.redirect("/"));
-    }
+    },
+    profile: function (req, res) {
+    const userId = req.session.user.id;
+
+    Usuario.findByPk(userId, {
+        include: [{ association: 'productos' }]
+    })
+    .then(usuario => {
+        return res.render("profile", {
+            usuario,
+            productos: usuario.productos
+        });
+    })
+    .catch(error => res.send("Error al cargar el perfil: " + error));
+}
 };
+
 
 module.exports = usersController;
