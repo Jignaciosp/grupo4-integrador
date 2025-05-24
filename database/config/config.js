@@ -2,7 +2,8 @@ module.exports = {
   "development": {
     "username": "root",
     "password": "",
-    "database": "movies_db",
+    //OJO ACA QUE NO ES MOVIES_DB, ES EL NOMBRE QUE LE PUSIMOS AL SQL!!!!!!!
+    "database": "integradorgrupo4",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

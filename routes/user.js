@@ -1,14 +1,14 @@
-var express = require('express');//importo express 
-var router = express.Router();
-const userController = require('../controllers/userController');// delego la logica al controller correspondiente
+const express = require('express');
+const router = express.Router();
+const usersController = require('../controllers/userController'); // ✅ esta línea faltaba
 
-router.get('/profile', userController.profile);
-
-router.get('/login', userController.login);
-router.post('/processLogin', usersController.processLogin);
-
-router.get('/register', userController.show);
+router.get('/register', usersController.show);
 router.post('/register', usersController.create);
 
+router.get('/login', usersController.login);
+router.post('/processLogin', usersController.processLogin);
 
-module.exports = router;//exporto el router para ser usado en app.js
+router.get('/logout', usersController.logout);
+router.get('/profile', usersController.profile); // si usás profile
+
+module.exports = router;
