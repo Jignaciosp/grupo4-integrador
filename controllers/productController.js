@@ -1,44 +1,49 @@
-//pregunta si esta bien
-const db = require('../database/models');
+const db = require("../database/models");
 const Producto = db.Producto;
-const Usuario = db.Usuario;
+const Op = db.Sequelize.Op;
 
 const productController = {
 
     index: function(req, res) {
-        Producto.findAll({
-            include: ['usuario']
-        })
+        Producto.findAll()
         .then(productos => {
-            return res.render("product", {
-                info: productos
-            });
+            return res.render("products", { productos }); // Vista: products.ejs
         })
         .catch(error => res.send(error));
     },
 
-    filtrarID: function (req, res) {
-        let IDbuscado = req.params.id;
+    detalle: function(req, res) {
+        let idProducto = req.params.id;
 
-        Producto.findByPk(IDbuscado, {
-            include: ['usuario', 'comentarios'] // opcional si a muestro comentariso
+        Producto.findByPk(idProducto, {
+            include: ['usuario'] // si querés mostrar quién lo subió
         })
         .then(producto => {
             if (!producto) return res.send("Producto no encontrado");
-
-            return res.render("product", {
-                detalle: producto,
-                infoComentarios: producto.comentarios || [] // opcional
-            });
+            return res.render("detalleProducto", { producto }); // Vista: detalleProducto.ejs
         })
         .catch(error => res.send(error));
     },
 
-    productAdd: function(req, res) {
-        return res.render('productAdd');
+    buscar: function(req, res) {
+        let keyword = req.query.search;
+
+        Producto.findAll({
+            where: {
+                nombre: {
+                    [Op.like]: `%${keyword}%`
+                }
+            },
+            include: ['usuario']
+        })
+        .then(productos => {
+            return res.render("search-results", {
+                productos,
+                keyword
+            });
+        })
+        .catch(error => res.send(error));
     }
 };
 
 module.exports = productController;
-
-

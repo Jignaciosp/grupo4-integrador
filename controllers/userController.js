@@ -1,89 +1,76 @@
-//fijarse si funciona
-const db = require('../database/models');
-const Usuario = db.Usuario;
-const Producto = db.Producto;
+const db = require("../database/models");
 const bcrypt = require('bcryptjs');
+const Usuario = db.Usuario;
 
-const userController = {
-
-    register: (req, res) => {
-        return res.render('register');
+const usersController = {
+    show: function (req, res) {
+        if (req.session.user) return res.redirect("/");
+        return res.render("register");
     },
 
-    processRegister: (req, res) => {
-        const { email, contrasenia, dni, fechaNacimiento } = req.body;
-
-        // Validación mínima
-        if (!email || contrasenia.length < 3) {
-            return res.send('Email inválido o contraseña muy corta');
-        }
+    create: function (req, res) {
+        const { username, email, password, dni, fechaNacimiento } = req.body;
 
         Usuario.findOne({ where: { email } })
-        .then(usuarioExistente => {
-            if (usuarioExistente) {
-                return res.send("Este email ya está registrado.");
-            }
+            .then(existingUser => {
+                if (existingUser) {
+                    return res.send("Ya existe un usuario con ese email.");
+                }
 
-            const nuevoUsuario = {
-                email,
-                contrasenia: bcrypt.hashSync(contrasenia, 10),
-                foto: req.file ? req.file.filename : "default-image.png",
-                dni,
-                fechaNacimiento
-            };
+                const nuevoUsuario = {
+                    email,
+                    contrasenia: bcrypt.hashSync(password, 10),
+                    foto: req.file ? req.file.filename : "default-image.png",
+                    dni,
+                    fechaNacimiento
+                };
 
-            return Usuario.create(nuevoUsuario);
-        })
-        .then(() => {
-            return res.redirect('/login');
-        })
-        .catch(error => res.send(error));
+                return Usuario.create(nuevoUsuario);
+            })
+            .then(user => {
+                req.session.user = {
+                    id: user.id,
+                    email: user.email
+                };
+                return res.redirect("/");
+            })
+            .catch(err => res.send("Error al registrar: " + err));
     },
 
-    login: (req, res) => {
-        return res.render('login');
+    login: function (req, res) {
+        if (req.session.user) return res.redirect("/");
+        return res.render("login");
     },
 
-    processLogin: (req, res) => {
-        const { email, contrasenia } = req.body;
+    processLogin: function (req, res) {
+        const { email, password } = req.body;
+        const remember = req.body.remember === "on";
 
         Usuario.findOne({ where: { email } })
-        .then(usuario => {
-            if (!usuario) return res.send("Email no registrado");
+            .then(user => {
+                if (!user) return res.send("El usuario no existe.");
 
-            const match = bcrypt.compareSync(contrasenia, usuario.contrasenia);
-            if (!match) return res.send("Contraseña incorrecta");
+                const passwordOk = bcrypt.compareSync(password, user.contrasenia);
+                if (!passwordOk) return res.send("La contraseña es incorrecta.");
 
-            // Guardar datos en sesión
-            req.session.user = {
-                id: usuario.id,
-                email: usuario.email
-            };
+                req.session.user = {
+                    id: user.id,
+                    email: user.email
+                };
 
-            return res.redirect('/profile');
-        })
-        .catch(error => res.send(error));
+                if (remember) {
+                    res.cookie("userEmail", user.email, { maxAge: 1000 * 60 * 60 * 24 * 7 });
+                }
+
+                return res.redirect("/");
+            })
+            .catch(err => res.send("Error en login: " + err));
     },
 
-    logout: (req, res) => {
-        req.session.destroy();
-        return res.redirect('/');
-    },
-
-    profile: (req, res) => {
-        const idUsuario = req.session.user.id;
-
-        Usuario.findByPk(idUsuario, {
-            include: [{ model: Producto, as: 'productos' }]
-        })
-        .then(usuario => {
-            return res.render('profile', {
-                usuario,
-                productos: usuario.productos
-            });
-        })
-        .catch(error => res.send(error));
+    logout: function (req, res) {
+        res.clearCookie("userEmail");
+        req.session.destroy(() => res.redirect("/"));
     }
 };
 
-module.exports = userController;
+module.exports = usersController;

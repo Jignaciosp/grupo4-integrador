@@ -19,6 +19,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+//session
+app.use(session({
+  secret:"myapp",
+  resave: false,
+  saveUninitialized:true
+}));
+
 
 app.use('/', mainRouter);// configuro enrutadores
 app.use('/user', userRouter);// configuro enrutadores
