@@ -17,13 +17,14 @@ const usersController = {
                     return res.send("Ya existe un usuario con ese email.");
                 }
 
-                const nuevoUsuario = {
-                    email,
-                    contrasenia: bcrypt.hashSync(password, 10),
-                    foto: req.file ? req.file.filename : "default-image.png",
-                    dni,
-                    fechaNacimiento
-                };
+               const nuevoUsuario = {
+                email,
+                nombreUsuario: username, 
+                contrasenia: bcrypt.hashSync(password, 10),
+                foto: req.file ? req.file.filename : "default-image.png",
+                dni,
+                fechaNacimiento
+            };
 
                 return Usuario.create(nuevoUsuario);
             })
@@ -55,7 +56,9 @@ const usersController = {
 
                 req.session.user = {
                     id: user.id,
-                    email: user.email
+                    email: user.email,
+                    nombreUsuario: user.nombreUsuario, // asegurate que este campo exista en la tabla y el modelo
+                    foto: user.foto
                 };
 
                 if (remember) {
@@ -71,20 +74,40 @@ const usersController = {
         res.clearCookie("userEmail");
         req.session.destroy(() => res.redirect("/"));
     },
-    profile: function (req, res) {
+profile: function (req, res) {
+    if (!req.session.user) return res.redirect("/user/login"); // validación
     const userId = req.session.user.id;
 
-    Usuario.findByPk(userId, {
+    db.Usuario.findByPk(userId, {
         include: [{ association: 'productos' }]
     })
     .then(usuario => {
+        if (!usuario) return res.send("Usuario no encontrado");
+
         return res.render("profile", {
             usuario,
             productos: usuario.productos
         });
     })
     .catch(error => res.send("Error al cargar el perfil: " + error));
+},
+profilePublic: function (req, res) {
+    const userId = req.params.id;
+
+    db.Usuario.findByPk(userId, {
+        include: [{ association: 'productos' }]
+    })
+    .then(usuario => {
+        if (!usuario) return res.send("Usuario no encontrado");
+
+        res.render("profile", {
+            usuario,
+            productos: usuario.productos
+        });
+    })
+    .catch(error => res.send("Error al cargar el perfil público: " + error));
 }
+
 };
 
 
