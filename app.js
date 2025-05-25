@@ -39,12 +39,15 @@ app.use(function(req, res, next) {
         db.Usuario.findOne({ where: { email: req.cookies.userEmail } })
             .then(user => {
                 if (user) {
-                    req.session.user = {
-                        id: user.id,
-                        email: user.email
-                    };
-                    res.locals.user = req.session.user;
-                } else {
+                req.session.user = {
+                    id: user.id,
+                    email: user.email,
+                    nombreUsuario: user.nombreUsuario,
+                    foto: user.foto
+                };
+                res.locals.user = req.session.user;
+            }
+            else {
                     res.locals.user = null;
                 }
                 return next();

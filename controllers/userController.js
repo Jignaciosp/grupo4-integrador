@@ -2,9 +2,9 @@ const db = require("../database/models");
 const bcrypt = require('bcryptjs');
 const Usuario = db.Usuario;
 
-const usersController = {
+const userController = {
     show: function (req, res) {
-        if (req.session.user) return res.redirect("/");
+        if (req.session.user) return res.redirect("/user/profile");
         return res.render("register");
     },
 
@@ -17,29 +17,31 @@ const usersController = {
                     return res.send("Ya existe un usuario con ese email.");
                 }
 
-               const nuevoUsuario = {
-                email,
-                nombreUsuario: username, 
-                contrasenia: bcrypt.hashSync(password, 10),
-                foto: req.file ? req.file.filename : "default-image.png",
-                dni,
-                fechaNacimiento
-            };
+                const nuevoUsuario = {
+                    email,
+                    nombreUsuario: username,
+                    contrasenia: bcrypt.hashSync(password, 10),
+                    foto: req.file ? req.file.filename : "default-image.png",
+                    dni,
+                    fechaNacimiento
+                };
 
                 return Usuario.create(nuevoUsuario);
             })
             .then(user => {
                 req.session.user = {
                     id: user.id,
-                    email: user.email
+                    email: user.email,
+                    nombreUsuario: user.nombreUsuario,
+                    foto: user.foto
                 };
-                return res.redirect("/");
+                return res.redirect("/user/profile");
             })
             .catch(err => res.send("Error al registrar: " + err));
     },
 
     login: function (req, res) {
-        if (req.session.user) return res.redirect("/");
+        if (req.session.user) return res.redirect("/user/profile");
         return res.render("login");
     },
 
@@ -57,7 +59,7 @@ const usersController = {
                 req.session.user = {
                     id: user.id,
                     email: user.email,
-                    nombreUsuario: user.nombreUsuario, // asegurate que este campo exista en la tabla y el modelo
+                    nombreUsuario: user.nombreUsuario,
                     foto: user.foto
                 };
 
@@ -65,7 +67,7 @@ const usersController = {
                     res.cookie("userEmail", user.email, { maxAge: 1000 * 60 * 60 * 24 * 7 });
                 }
 
-                return res.redirect("/");
+                return res.redirect("/user/profile");
             })
             .catch(err => res.send("Error en login: " + err));
     },
@@ -74,24 +76,25 @@ const usersController = {
         res.clearCookie("userEmail");
         req.session.destroy(() => res.redirect("/"));
     },
-profile: function (req, res) {
-    if (!req.session.user) return res.redirect("/user/login"); // validación
-    const userId = req.session.user.id;
 
-    db.Usuario.findByPk(userId, {
-        include: [{ association: 'productos' }]
-    })
-    .then(usuario => {
-        if (!usuario) return res.send("Usuario no encontrado");
+    profile: function (req, res) {
+        if (!req.session.user) return res.redirect("/user/login");
 
-        return res.render("profile", {
-            usuario,
-            productos: usuario.productos
-        });
-    })
-    .catch(error => res.send("Error al cargar el perfil: " + error));
-},
-profilePublic: function (req, res) {
+        db.Usuario.findByPk(req.session.user.id, {
+            include: [{ association: 'productos' }]
+        })
+        .then(usuario => {
+            if (!usuario) return res.send("Usuario no encontrado");
+
+            return res.render("profile", {
+                usuario,
+                productos: usuario.productos
+            });
+        })
+        .catch(error => res.send("Error al cargar el perfil: " + error));
+    },
+
+    profilePublic: function (req, res) {
     const userId = req.params.id;
 
     db.Usuario.findByPk(userId, {
@@ -107,8 +110,6 @@ profilePublic: function (req, res) {
     })
     .catch(error => res.send("Error al cargar el perfil público: " + error));
 }
+}
 
-};
-
-
-module.exports = usersController;
+module.exports = userController;

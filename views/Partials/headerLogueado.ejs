@@ -52,16 +52,21 @@
 				</ul>
 	
 				<ul class="right-navbar">
-					<li><a href="/user/profile">
-							Bienvenido, <%= usuario.usuario %> <i class="fas fa-user"></i>
+				<% if (user) { %>
+					<li>
+						<a href="/user/profile">
+							Bienvenido, <%= user.nombreUsuario %> <i class="fas fa-user"></i>
 						</a>
 					</li>
 					<li>
-						<a href="/" class="logout">
-							Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-						</a>
-						</li>
+						<a href="/user/logout">Cerrar sesión <i class="fas fa-sign-in-alt"></i></a>
 					</li>
+				<% } else { %>
+					<li><a href="/user/login">Ingresar</a></li>
+					<li><a href="/user/register">Registrarse</a></li>
+				<% } %>
+			</ul>
+
 					<!-- FORMA ORGINAL PERO NO ME DIRIGIA A LOGIN ASI QUE LO CAMBIE (PREGUNTAR SI ESTA BIEN MI LOGICA)
 						<form action="logout" method="post">
 							<button class="logout" type="submit">
