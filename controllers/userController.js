@@ -20,7 +20,7 @@ create: function(req, res) {
                 return res.send("Ya existe un usuario con ese email.");
             }
 
-            //  Acá tomamos el nombre del archivo si subieron una imagen, si no usamos default
+            // ✅ Acá tomamos el nombre del archivo si subieron una imagen, si no usamos default
             const foto = req.file ? req.file.filename : "default-image.png";
 
             let usuario = {
@@ -48,16 +48,18 @@ create: function(req, res) {
 },
 
     login: function (req, res) {
-        if (req.session.user) return res.redirect("/user/profile/" + req.session.user.id); //corregido
+        if (req.session.user) return res.redirect("/user/profile"); //corregido
         return res.render("login");
     },
 
     processLogin: function (req, res) {
+        
         const { email, password } = req.body;
         const remember = req.body.remember === "on";
 
         Usuario.findOne({ where: { email } })
             .then(user => {
+                
               if (!user) {
                     return res.render("login", {
                         error: "El email ingresado no está registrado."
@@ -77,14 +79,14 @@ create: function(req, res) {
                     nombreUsuario: user.nombreUsuario,
                     foto: user.foto
                 };
-
+               
                 if (remember) {
                     res.cookie("userEmail", user.email, {
                         maxAge: 1000 * 60 * 60 * 24 * 7
                     });
                 }
 
-                return res.redirect("/user/profile/" + user.id); // corregido
+                return res.redirect("/user/profile"); // corregido
             })
             .catch(error => res.send("Error al iniciar sesión: " + error));
     },
@@ -100,26 +102,25 @@ profile: function (req, res) {
     db.Usuario.findByPk(req.session.user.id, {
         include: [
             {
-                association: 'productos',
-                include: ['comentarios'] //  Esto ya está perfecto
-            }
+                association: 'productos'
+                 //  Esto ya está perfecto
+            },{association:'comentarios'}
         ]
     })
     .then(usuario => {
+      
         if (!usuario) return res.send("Usuario no encontrado");
 
         // Contar total de comentarios recibidos
-        const totalComentariosRecibidos = usuario.productos.reduce((acum, producto) => {
-            return acum + (producto.comentarios?.length || 0);
-        }, 0);
+       const totalComentariosRecibidos = usuario.comentarios.length
 
         return res.render("profile", {
             usuario,
             productos: usuario.productos,
-            totalComentariosRecibidos // 👈 lo mandamos a la vista
+            totalComentariosRecibidos //  lo mandamos a la vista
         });
     })
-    .catch(error => res.send("Error al cargar el perfil: " + error));
+    .catch(error => res.send("Error al cargar el perfil:  " + error));
 },
 
 
@@ -135,9 +136,11 @@ profile: function (req, res) {
         ]
     })
     .then(usuario => {
+
         if (!usuario) return res.send("Usuario no encontrado");
 
-        const totalComentariosRecibidos = {data:usuario.productos[0].comentarios.length}
+        const totalComentariosRecibidos = usuario.productos[0].comentarios.length
+        
 
         res.render("profile", {
             usuario,
