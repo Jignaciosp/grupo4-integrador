@@ -1,0 +1,1 @@
+SELECT * FROM integradorgrupo4.comentarios;
