@@ -25,35 +25,29 @@
 	<!-- /Header -->
 	
 	<!-- Datos del usuario -->
-	<section class="info-usuario container products-wrapper">
-		<div class="row">
-			<div class="img-container offset-3 col-2">
-				<img class="imgPerfil" src="/images/users/<%= usuario.foto %>" alt="foto de perfil">
-			</div>
-			<div class="data-container col-6">
-				<div class="d-flex align-items-center ">
-					<h1 class="main-title">
-						<%= usuario.nombreUsuario %>
-						<% if (user && user.id === usuario.id) { %>
-							<a href="/user/profile">
-								<i class="fas fa-cog"></i>
-							</a>
-						<% } %>
-					</h1>
-
-					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
-				</div>
-				<div>
-					<ul class="">
-						<li><%= usuario.email %></li>
-						<li><%= productos ? productos.length:0 %> productos</li>
-						<li>200 seguidores</li>
-						<li>300 comentarios</li>
-					</ul>
-				</div>
-			</div>
+	<div class="data-container col-6">
+		<div class="d-flex align-items-center ">
+			<h1 class="main-title">
+				<%= usuario.nombreUsuario %>
+				<% if (user && user.id === usuario.id) { %>
+					<a href="/user/profile">
+						<i class="fas fa-cog"></i>
+					</a>
+				<% } %>
+			</h1>
+			<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 		</div>
-	</section>
+		<div>
+			<ul class="">
+				<li><%= usuario.email %></li>
+				<li><%= productos ? productos.length:0 %> productos publicados</li>
+				<li>200 seguidores</li>
+				<li><%= totalComentariosRecibidos %> comentarios recibidos</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</section>
 	<!-- /Datos del usuario -->
 
 	<!-- Mis productos -->
