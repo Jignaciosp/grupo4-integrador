@@ -34,24 +34,23 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<div class="col-12"> 
-				<form action="/user/profile" method="POST">
-					<div>
-						<label for="User:">Usuario: </label>
-						<input id="email" type="email" name="" value=""> 
-					</div>
-					<div>
-						<label for="Password:">Contraseña: </label>
-						<input id="password" type="password" name="" value=""> 
-					</div>
-					<div>
-						<label for="checkbox:">Checkbox: </label>
-						<input id="checkbox" type="checkbox" name="" value="recordarme">
-					</div>
-					<div>
-						<button type="submit">Submit</button> 
-					</div>
-
-				</div>
+				<form action="/user/processLogin" method="POST">
+                    <div>
+                        <label for="email">Usuario:</label>
+                        <input id="email" type="email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="password">Contraseña:</label>
+                        <input id="password" type="password" name="password" required>
+                    </div>
+                    <div>
+                        <label for="remember">Recordarme:</label>
+                        <input id="remember" type="checkbox" name="remember" value="on">
+                    </div>
+                    <div>
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
 
 <!-- footer -->
 	<!-- utilizo el partial footer asi se comporta de la misma manera en todas las paginas -->
