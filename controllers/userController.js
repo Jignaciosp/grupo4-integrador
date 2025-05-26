@@ -20,7 +20,7 @@ create: function(req, res) {
                 return res.send("Ya existe un usuario con ese email.");
             }
 
-            // ✅ Acá tomamos el nombre del archivo si subieron una imagen, si no usamos default
+            //  Acá tomamos el nombre del archivo si subieron una imagen, si no usamos default
             const foto = req.file ? req.file.filename : "default-image.png";
 
             let usuario = {
@@ -101,14 +101,14 @@ profile: function (req, res) {
         include: [
             {
                 association: 'productos',
-                include: ['comentarios'] // ✅ Esto ya está perfecto
+                include: ['comentarios'] //  Esto ya está perfecto
             }
         ]
     })
     .then(usuario => {
         if (!usuario) return res.send("Usuario no encontrado");
 
-        // 🔢 Contar total de comentarios recibidos
+        // Contar total de comentarios recibidos
         const totalComentariosRecibidos = usuario.productos.reduce((acum, producto) => {
             return acum + (producto.comentarios?.length || 0);
         }, 0);

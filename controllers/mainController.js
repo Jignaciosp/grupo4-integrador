@@ -14,7 +14,11 @@ const mainController = {
     },
 
     searchResults: function (req, res) {
-        const query = req.query.q || "";
+        let query = req.query.q;
+            if (!query) {
+                query = "";
+            }
+
 
         Producto.findAll({
             where: {
