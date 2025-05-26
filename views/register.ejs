@@ -19,7 +19,11 @@
 <body>
 	<!-- Header -->
 	<!-- utilizo el partial header asi se comporta de la misma manera en todas las paginas -->
-	<%- include('./partials/header') %>
+	<% if (user) { %>
+		<%- include('./partials/headerLogueado') %>
+	<% } else { %>
+		<%- include('./partials/header') %>
+	<% } %>
 	<!-- /Header -->
 
 	<!-- Novedades -->
