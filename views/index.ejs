@@ -17,7 +17,11 @@
 <body>
 <!-- Header -->
 	<!-- utilizo el partial header asi se comporta de la misma manera en todas las paginas -->
-		<%- include('./partials/header') %>
+		<% if (user) { %>
+			<%- include('./partials/headerLogueado') %>
+		<% } else { %>
+			<%- include('./partials/header') %>
+		<% } %>
 		<!-- /Header -->
 	
 	<!-- Banner -->
@@ -34,7 +38,7 @@
 			<!-- Show the "ultimos" products -->
 			
 			<!--Hice que los productos se muestren de manera dinamica-->
-			<% for( let i = 0; i < productos.length; i++ ) { %>
+			 <% for( let i = 0; i < productos.length; i++ ) { %>
 				<div class="col-12 col-sm-6 col-lg-3 contenedorIndex">
 					<section class="product-box">
 							<a href="/product/id/<%= productos[i].id %>">
@@ -44,7 +48,9 @@
 								<article class="product-box_data">
 									<h2><%= productos[i].nombre  %></h2>
 									<p><%= productos[i].descripcion %></p>
-									<p>Comentarios: 12</p>
+									<p>Comentarios: <%= productos[i].comentarios.length %></p>
+
+
 								</article>
 							</a>
 						
