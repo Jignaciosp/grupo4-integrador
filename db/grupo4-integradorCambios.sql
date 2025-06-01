@@ -464,5 +464,28 @@ INSERT INTO comentarios VALUES(
     null,
     null
 );
+-- Cambios del 26/05/2025: Actualización de fotos e imágenes
+UPDATE usuarios
+SET foto = CONCAT('users/usuario', id, '.png')
+WHERE id BETWEEN 1 AND 5;
 
+UPDATE productos
+SET imagen = CONCAT('products/', SUBSTRING_INDEX(imagen, '.', 1), '.png');
+
+UPDATE integradorgrupo4.productos
+SET imagen = REPLACE(imagen, 'products/products/', 'products/')
+WHERE imagen LIKE 'products/products/%';
+
+UPDATE integradorgrupo4.productos
+SET imagen = REPLACE(imagen, 'products/products/', 'products/')
+WHERE id BETWEEN 1 AND 10
+   OR id = 15;
+   
+UPDATE integradorgrupo4.usuarios
+SET foto = CASE 
+    WHEN id = 6 THEN 'users/usuario4.png'
+    WHEN id = 7 THEN 'users/usuario2.png'
+    WHEN id = 8 THEN 'users/usuario1.png'
+END
+WHERE id IN (6, 7, 8);
  
