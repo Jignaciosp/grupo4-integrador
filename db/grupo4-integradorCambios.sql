@@ -43,7 +43,7 @@ INSERT INTO usuarios VALUES
     "brian@mail.com",
     "brian123",
     "12345678",
-    "default-image.png",
+    "users/usuario1.png", 
     45123456,
     "2006-04-10",
     null,
@@ -55,7 +55,7 @@ INSERT INTO usuarios VALUES
     "olivia@mail.com",
     "olivia456",
     "12345678",
-    "default-image.png",
+    "users/usuario2.png",
     46123456,
     "2005-10-14",
     null,
@@ -67,7 +67,7 @@ INSERT INTO usuarios VALUES
     "mariana@mail.com",
     "mariana_06",
     "12345678",
-    "default-image.png",
+    "users/usuario3.png",
     46234567,
     "2006-06-12",
     null,
@@ -79,7 +79,7 @@ INSERT INTO usuarios VALUES
     "ignacio@mail.com",
     "nacho2005",
     "12345678",
-    "default-image.png",
+    "users/usuario4.png",
     45234567,
     "2005-03-07",
     null,
@@ -91,7 +91,7 @@ INSERT INTO usuarios VALUES
     "luis@mail.com",
     "luisito03",
     "12345678",
-    "default-image.png",
+    "users/usuario5.png",
     43123456,
     "2003-08-20",
     null,
@@ -104,7 +104,7 @@ INSERT INTO productos VALUES(
 	DEFAULT,
     "Bizcochuelo suave bañado en una mezcla de tres leches, con crema y un toque de canela. Húmeda, dulce y absolutamente irresistible.",
     1,
-    "treslechesTorta.jpg",
+    "products/treslechesTorta.jpg",
     "Torta tres leches",
     null,
     null,
@@ -114,7 +114,7 @@ INSERT INTO productos VALUES(
 	DEFAULT,
     "Esponjosa, con aroma cítrico y sabor fresco. Un clásico liviano y lleno de sabor natural.",
     2,
-    "tortanaranja.jpg",
+    "products/tortanaranja.jpg",
     "Torta de naranja",
     null,
     null,
@@ -124,7 +124,7 @@ INSERT INTO productos VALUES(
 	DEFAULT,
     "Húmedo, intenso y súper chocolatoso. Ideal para acompañar el café o disfrutar como snack dulce.",
     3,
-    "budinChocolate.jpg",
+    "products/budinChocolate.jpg",
     "Budin de chocolate",
     null,
     null,
@@ -133,7 +133,7 @@ INSERT INTO productos VALUES(
 (	DEFAULT,
     "Clásico de fin de año, con masa suave y esponjosa, frutas abrillantadas y frutos secos. Aromático, tierno y festivo.",
     4,
-    "pandulceTorta.jpg",
+    "products/pandulceTorta.jpg",
     "Pan dulce",
     null,
     null,
@@ -142,7 +142,7 @@ INSERT INTO productos VALUES(
 (	DEFAULT,
     "Capas finas de masa crocante, dulce de leche cremoso y merengue italiano. Crocante, dulce y totalmente irresistible.",
     5,
-    "rogelTorta.jpg",
+    "products/rogelTorta.jpg",
     "Torta rogel",
     null,
     null,
@@ -151,7 +151,7 @@ INSERT INTO productos VALUES(
 (	DEFAULT,
     "Clásica torta alemana con bizcochuelo de chocolate, crema chantilly y cerezas. Intensa, suave y deliciosa.",
     1,
-    "selvanegraTorta.jpg",
+    "products/selvanegraTorta.jpg",
     "Torta selva negra",
     null,
     null,
@@ -160,7 +160,7 @@ INSERT INTO productos VALUES(
 (	DEFAULT,
     "Bizcochuelo húmedo, crema suave y coco rallado. Delicada, aromática y tentadora.",
     2,
-    "tartaCoco.jpg",
+    "products/tartaCoco.jpg",
     "Torta de coco",
     null,
     null,
@@ -169,7 +169,7 @@ INSERT INTO productos VALUES(
 (	DEFAULT,
     "Bizcochuelo esponjoso, crema suave y frutas frescas. Dulce, frutal y súper fresca.",
     3,
-    "tartaduraznosArandanos.jpg",
+    "products/tartaduraznosArandanos.jpg",
     "Torta de arandanos y durazno",
     null,
     null,
@@ -178,7 +178,7 @@ INSERT INTO productos VALUES(
 (	DEFAULT,
     "Masa crocante, manzanas caramelizadas y un toque de canela. Clásica, casera y siempre deliciosa.",
     4,
-    "tartamanzanaTorta.jpg",
+    "products/tartamanzanaTorta.jpg",
     "Tarta de manzana",
     null,
     null,
@@ -187,7 +187,7 @@ INSERT INTO productos VALUES(
 (	DEFAULT,
     "Bizcochuelo suave con crema chantilly y un mix de frambuesas, arándanos, moras y frutillas frescas. Ligera, fresca y con el equilibrio justo entre dulce y ácido. Ideal para cualquier ocasión.",
     5,
-    "tortafrutosrojosTorta.jpg",
+    "products/tortafrutosrojosTorta.jpg",
     "Torta de frutos rojos",
     null,
     null,
@@ -464,33 +464,3 @@ INSERT INTO comentarios VALUES(
     null,
     null
 );
--- Cambios del 26/05/2025: Actualización de fotos e imágenes
-UPDATE usuarios
-SET foto = CONCAT('users/usuario', id, '.png')
-WHERE id BETWEEN 1 AND 5;
-
-UPDATE productos
-SET imagen = CONCAT('products/', SUBSTRING_INDEX(imagen, '.', 1), '.png');
-
-UPDATE integradorgrupo4.productos
-SET imagen = REPLACE(imagen, 'products/products/', 'products/')
-WHERE imagen LIKE 'products/products/%';
-
-UPDATE integradorgrupo4.productos
-SET imagen = REPLACE(imagen, 'products/products/', 'products/')
-WHERE id BETWEEN 1 AND 10
-   OR id = 15;
-   
-UPDATE integradorgrupo4.usuarios
-SET foto = CASE 
-    WHEN id = 6 THEN 'users/usuario4.png'
-    WHEN id = 7 THEN 'users/usuario2.png'
-    WHEN id = 8 THEN 'users/usuario1.png'
-END
-WHERE id IN (6, 7, 8);
-
-UPDATE integradorgrupo4.productos
-SET deleteAt = CURRENT_TIMESTAMP
-WHERE id = 16;
-
- 
