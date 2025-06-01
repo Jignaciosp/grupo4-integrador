@@ -10,6 +10,8 @@ const commentController = {
             productId,
             usuarioId: req.session.user.id
         }
+        .then(() => res.redirect('/product/id/' + productId) )
+        
     }
 }
 
