@@ -488,4 +488,9 @@ SET foto = CASE
     WHEN id = 8 THEN 'users/usuario1.png'
 END
 WHERE id IN (6, 7, 8);
+
+UPDATE integradorgrupo4.productos
+SET deleteAt = CURRENT_TIMESTAMP
+WHERE id = 16;
+
  
