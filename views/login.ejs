@@ -35,22 +35,29 @@
 			<!-- Show the "ultimos" products -->
 			<div class="col-12"> 
 				<form action="/user/processLogin" method="POST">
-                    <div>
-                        <label for="email">Usuario:</label>
-                        <input id="email" type="email" name="email" required>
-                    </div>
-                    <div>
-                        <label for="password">Contraseña:</label>
-                        <input id="password" type="password" name="password" required>
-                    </div>
-                    <div>
-                        <label for="remember">Recordarme:</label>
-                        <input id="remember" type="checkbox" name="remember" value="on">
-                    </div>
-                    <div>
-                        <button type="submit">Submit</button>
-                    </div>
-                </form>
+					<div>
+						<label for="email">Usuario:</label>
+						<input id="email" type="email" name="email" required>
+					</div>
+					<div>
+						<label for="password">Contraseña:</label>
+						<input id="password" type="password" name="password" required>
+					</div>
+					<div>
+						<label for="remember">Recordarme:</label>
+						<input id="remember" type="checkbox" name="remember" value="on">
+					</div>
+					<div>
+						<button type="submit">Submit</button>
+					</div>
+				</form>
+
+				</div>
+				<% if (typeof error !== "undefined") { %>
+    			<p class="login-error" style="color: red; text-align: center; margin-bottom: 1rem;">
+        		<%= error %>
+    		</p>
+<% } %>
 
 <!-- footer -->
 	<!-- utilizo el partial footer asi se comporta de la misma manera en todas las paginas -->

@@ -11,41 +11,41 @@ const usersController = {
         return res.render("register");
     },
 
-create: function(req, res) {
-    const { username, email, password, dni, fechaNacimiento } = req.body;
+    create: function(req, res) {
+        const { username, email, password, dni, fechaNacimiento } = req.body;
 
-    db.Usuario.findOne({ where: { email } })
-        .then(existingUser => {
-            if (existingUser) {
-                return res.send("Ya existe un usuario con ese email.");
-            }
+        db.Usuario.findOne({ where: { email } })
+            .then(existingUser => {
+                if (existingUser) {
+                    return res.send("Ya existe un usuario con ese email.");
+                }
 
-            // ✅ Acá tomamos el nombre del archivo si subieron una imagen, si no usamos default
-            const foto = req.file ? req.file.filename : "default-image.png";
+                // Acá tomamos el nombre del archivo si subieron una imagen, si no usamos default
+                const foto = req.file ? req.file.filename : "default-image.png";
 
-            let usuario = {
-                nombreUsuario: username,
-                email: email,
-                contrasenia: bcrypt.hashSync(password, 10),
-                dni,
-                fechaNacimiento,
-                foto // 
-            };
+                let usuario = {
+                    nombreUsuario: username,
+                    email: email,
+                    contrasenia: bcrypt.hashSync(password, 10),
+                    dni,
+                    fechaNacimiento,
+                    foto // 
+                };
 
-            db.Usuario.create(usuario)
-                .then(function(user) {
-                    req.session.user = {
-                        id: user.id,
-                        nombreUsuario: user.nombreUsuario,
-                        email: user.email,
-                        foto: user.foto //
-                    };
-                    return res.redirect("/user/profile/" + user.id);
-                })
-                .catch(err => res.send("Error al crear el usuario: " + err));
-        })
-        .catch(err => res.send("Error al verificar el email: " + err));
-},
+                db.Usuario.create(usuario)
+                    .then(function(user) {
+                        req.session.user = {
+                            id: user.id,
+                            nombreUsuario: user.nombreUsuario,
+                            email: user.email,
+                            foto: user.foto //
+                        };
+                        return res.redirect("/user/profile/" + user.id);
+                    })
+                    .catch(err => res.send("Error al crear el usuario: " + err));
+            })
+            .catch(err => res.send("Error al verificar el email: " + err));
+    },
 
     login: function (req, res) {
         if (req.session.user) return res.redirect("/user/profile"); //corregido
