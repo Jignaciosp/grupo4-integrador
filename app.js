@@ -10,6 +10,7 @@ const db = require('./database/models');
 let mainRouter = require('./routes/main'); // configuro enrutadores
 let userRouter = require('./routes/user');// configuro enrutadores
 let productRouter = require('./routes/product');// configuro enrutadores
+const commentRouter = require('./routes/comment')
 
 var app = express(); //--> funcion de alto nivel.
 
@@ -67,6 +68,7 @@ app.use(function(req, res, next) {
 app.use('/', mainRouter);// configuro enrutadores
 app.use('/user', userRouter);// configuro enrutadores
 app.use('/product', productRouter);// configuro enrutadores
+app.use('/comments', commentRouter);
 
 
 // catch 404 and forward to error handler
