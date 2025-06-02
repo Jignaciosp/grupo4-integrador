@@ -60,7 +60,7 @@ const usersController = {
         Usuario.findOne({ where: { email } })
             .then(user => {
                 
-              if (!user) {
+                if (!user) {
                     return res.render("login", {
                         error: "El email ingresado no está registrado."
                     });
@@ -79,7 +79,7 @@ const usersController = {
                     nombreUsuario: user.nombreUsuario,
                     foto: user.foto
                 };
-               
+            
                 if (remember) {
                     res.cookie("userEmail", user.email, {
                         maxAge: 1000 * 60 * 60 * 24 * 7
