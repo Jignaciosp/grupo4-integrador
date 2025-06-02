@@ -36,27 +36,26 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img class="imgProduct" src="/images/products/<%=detalle[0].imagen%>" alt="" class="product-detail-img">
+					<img class="imgProduct" src="/images/<%=detalle[0].imagen%>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
 						<%=detalle[0].descripcion%></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% for(let i = 0; i < infoComentarios.length; i++) { %>
-						<article>
-							<img class="imgProduct" src="/images/users/<%= infoComentarios[i].usuario.foto %>" alt="">
-							<div class="data">
-								<p class="user">
-									<strong>
-										<a href="/user/profile/<%= infoComentarios[i].usuario.id %>">
-											
-											<%= infoComentarios[i].usuario.nombreUsuario %>
-										</a>
-									</strong>
-									<%= infoComentarios[i].comentario %>
-								</p>
-							</div>
-						</article>
+						<% for (let comentario of infoComentarios) { %>
+				<article>
+					<img class="imgProduct" src="/images/<%= comentario.usuario.foto %>" alt="">
+					<div class="data">
+						<p class="user">
+							<strong>
+								<a href="/user/profile/<%= comentario.usuario.id %>">
+									<%= comentario.usuario.nombreUsuario %>
+								</a>
+							</strong>
+						</p>
+						<p class="contenido"><%= comentario.comentario %></p> <!-- acá va -->
+					</div>
+				</article>
 						<% } %>
 
 
