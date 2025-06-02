@@ -49,7 +49,8 @@
 									<h2><%= productos[i].nombre  %></h2>
 									<p><%= productos[i].descripcion %></p>
 									<p>Comentarios: <%= productos[i].comentarios ? productos[i].comentarios.length : 0 %></p>
-
+									<p class="publicado-por">
+										Publicado por: <strong><%= productos[i].usuario.nombreUsuario %></strong></p>
 
 								</article>
 							</a>
