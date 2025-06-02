@@ -10,6 +10,7 @@ const db = require('./database/models');
 let mainRouter = require('./routes/main'); // configuro enrutadores
 let userRouter = require('./routes/user');// configuro enrutadores
 let productRouter = require('./routes/product');// configuro enrutadores
+const commentRouter = require('./routes/comment')
 
 var app = express(); //--> funcion de alto nivel.
 
@@ -24,9 +25,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 //middleware de config de session
 app.use(session({
-  secret:"myapp",
-  resave: false,
-  saveUninitialized:true
+    secret:"myapp",
+    resave: false,
+    saveUninitialized:true
 }));
 //verificar si esta bien
 app.use(function(req, res, next) {
@@ -67,22 +68,23 @@ app.use(function(req, res, next) {
 app.use('/', mainRouter);// configuro enrutadores
 app.use('/user', userRouter);// configuro enrutadores
 app.use('/product', productRouter);// configuro enrutadores
+app.use('/comments', commentRouter);
 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+    next(createError(404));
 });
 
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 module.exports = app;
