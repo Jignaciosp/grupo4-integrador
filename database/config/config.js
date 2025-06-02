@@ -1,7 +1,7 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": "root",
+    "password": "",
     //OJO ACA QUE NO ES MOVIES_DB, ES EL NOMBRE QUE LE PUSIMOS AL SQL!!!!!!!
     "database": "integradorgrupo4",
     //IMPORTANTISIMO, sin esto te da error porque no estas accediendo al sql correspondiente

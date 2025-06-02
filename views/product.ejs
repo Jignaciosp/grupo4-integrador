@@ -58,12 +58,19 @@
 				</article>
 						<% } %>
 
+			</section>
+					<% if (user) { %>
+						<form class="form" action="/comments/create" method="POST">
+							<input type="hidden" name="productId" value="<%= detalle[0].id %>">
+							<textarea class="form-input" name="contenido" rows="3" placeholder="Agregá tu comentario" required></textarea>
+							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						</form>
+					<% } else { %>
+						<p class="login-alert">
+							Solo usuarios registrados pueden comentar. <a href="/user/login">Iniciá sesión aquí</a>.
+						</p>
 
-					</section>
-					<form class="form" action="" method="POST">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
+					<% } %>
 					<hr>
 				</div>
 			</div>

@@ -30,6 +30,12 @@ app.use(session({
     saveUninitialized:true
 }));
 //verificar si esta bien
+app.use(session({
+  secret:"myapp",
+  resave: false,
+  saveUninitialized:true
+}));
+//verificar si esta bien
 app.use(function(req, res, next) {
     if (req.session.user) {
         res.locals.user = req.session.user;
@@ -40,27 +46,26 @@ app.use(function(req, res, next) {
         db.Usuario.findOne({ where: { email: req.cookies.userEmail } })
             .then(user => {
                 if (user) {
-                req.session.user = {
-                    id: user.id,
-                    email: user.email,
-                    nombreUsuario: user.nombreUsuario,
-                    foto: user.foto
-                };
-                res.locals.user = req.session.user;
-            }
-            else {
+                    req.session.user = {
+                        id: user.id,
+                        email: user.email,
+                        nombreUsuario: user.nombreUsuario,
+                        foto: user.foto
+                    };
+                    res.locals.user = req.session.user;
+                } else {
                     res.locals.user = null;
                 }
-                return next();
+                next(); // SIEMPRE continuar
             })
             .catch(err => {
-                console.error("Error en middleware de autologin:", err);
+                console.error("Error en autologin:", err);
                 res.locals.user = null;
-                return next();
+                next(); // continuar a pesar del error
             });
     } else {
         res.locals.user = null;
-        return next();
+        next();
     }
 });
 
