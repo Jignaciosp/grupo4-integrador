@@ -43,8 +43,10 @@ const productController = {
         return res.render("productAdd");
     },
 
-    store: (req, res) => {
+  store: (req, res) => {
     const { nombre, descripcion, imagen } = req.body;
+
+    // Construir la ruta relativa para la base de datos
     const imagenFinal = imagen && imagen !== "" ? "products/" + imagen : "products/default.jpg";
 
     db.Producto.create({
@@ -57,6 +59,7 @@ const productController = {
     .then(() => res.redirect('/user/profile/' + req.session.user.id))
     .catch(err => res.send("Error al crear producto: " + err));
 }
+
 };
 
 module.exports = productController;

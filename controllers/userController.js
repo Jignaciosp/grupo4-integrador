@@ -60,7 +60,7 @@ const usersController = {
         Usuario.findOne({ where: { email } })
             .then(user => {
                 
-                if (!user) {
+              if (!user) {
                     return res.render("login", {
                         error: "El email ingresado no está registrado."
                     });
@@ -79,7 +79,7 @@ const usersController = {
                     nombreUsuario: user.nombreUsuario,
                     foto: user.foto
                 };
-            
+               
                 if (remember) {
                     res.cookie("userEmail", user.email, {
                         maxAge: 1000 * 60 * 60 * 24 * 7
@@ -102,17 +102,16 @@ profile: function (req, res) {
     db.Usuario.findByPk(req.session.user.id, {
         include: [
             {
-                association: 'productos'
-                 //  Esto ya está perfecto
-            },{association:'comentarios'}
+                association: 'productos'},
+                {association:'comentarios'}
         ]
     })
     .then(usuario => {
-    
+      
         if (!usuario) return res.send("Usuario no encontrado");
 
         // Contar total de comentarios recibidos
-        const totalComentariosRecibidos = usuario.comentarios.length
+       const totalComentariosRecibidos = usuario.comentarios.length
 
         return res.render("profile", {
             usuario,
@@ -129,27 +128,25 @@ profile: function (req, res) {
 
     db.Usuario.findByPk(userId, {
         include: [
-            {
-                association: 'productos',
-                include: ['comentarios']
-            }
+            { association: 'comentarios' },
+            { association: 'productos' }
         ]
     })
     .then(usuario => {
-
         if (!usuario) return res.send("Usuario no encontrado");
 
-        //const totalComentariosRecibidos = usuario.productos[0].comentarios.length
         const totalComentariosRecibidos = usuario.comentarios.length;
 
         res.render("profile", {
             usuario,
             productos: usuario.productos,
-            totalComentariosRecibidos // 
+            totalComentariosRecibidos
         });
     })
     .catch(error => res.send("Error al cargar el perfil público: " + error));
 }
+
+
 };
 
 module.exports = usersController;

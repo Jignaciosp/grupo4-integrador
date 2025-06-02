@@ -22,10 +22,10 @@
 	<!-- Header -->
 		<!-- utilizo el partial header asi se comporta de la misma manera en todas las paginas -->
 		<% if (user) { %>
-			<%- include('./partials/headerLogueado') %>
-		<% } else { %>
-			<%- include('./partials/header') %>
-		<% } %>
+    <%- include('./partials/headerLogueado') %>
+<% } else { %>
+    <%- include('./partials/header') %>
+<% } %>
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -37,11 +37,12 @@
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
 
-			<form action="/" method="get">
+			<form action="/product/create" method="POST">
+				<!--preguntar como hacer el productadd, esto fue hecho con chat!!!!!!!, enctype de arriba-->
 				<!-- Por ahora va get, en la primera entrega -->
 				<div>
 					<label for="imagen">Imagen del producto:</label>
-					<input type="file" id="imagen" name="imagen" required>
+					 <input type="text" id="imagen" name="imagen" placeholder="" required>
 				</div>
 
 				<div>

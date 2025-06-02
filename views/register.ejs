@@ -20,10 +20,10 @@
 	<!-- Header -->
 	<!-- utilizo el partial header asi se comporta de la misma manera en todas las paginas -->
 	<% if (user) { %>
-		<%- include('./partials/headerLogueado') %>
-	<% } else { %>
-		<%- include('./partials/header') %>
-	<% } %>
+    <%- include('./partials/headerLogueado') %>
+<% } else { %>
+    <%- include('./partials/header') %>
+<% } %>
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -35,7 +35,7 @@
 			<!-- Show the "ultimos" products -->
 			<div class="col-12"> 
 
-			<form action="/user/newuser" method="POST" class="formRegister">
+			<form action="/user/newuser" method="POST" class="formRegister" >
 				<div>
 					<label for="email" >Email:</label>
 					<input type="email" id="email" name="email" required>
@@ -57,9 +57,10 @@
 					<input type="number" id="dni" name="dni" >
 				</div>
 				<div>
-					<label for="fotoPerfil" >Foto de perfil (URL):</label>
-					<input type="text" id="fotoPerfil" name="fotoPerfil" >
+					<label for="foto">Foto de perfil:</label>
+					<input type="text" id="foto" name="foto" accept="image/*">
 				</div>
+
 			
 				<button type="submit">Registrarme</button>
 			</form> 

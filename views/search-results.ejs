@@ -1,54 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link width="" rel="shortcut icon" href="/images/logoHeader.png" />
-    <title> Pasteleria Dulce Tentación </title>
-    <!-- Font Awesome Stylesheet -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <!-- Bootstrap Grid Stylesheet -->
-    <link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css">
-    <!-- Own Stylesheet -->
-    <link rel="stylesheet" href="/stylesheets/app.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link width="" rel="shortcut icon" href="/images/logoHeader.png" />
+
+	<title> Pasteleria Dulce Tentación </title>
+	<!-- Font Awesome Stylesheet -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+	<!-- Bootstrap Grid Stylesheet -->
+	<link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css">
+	<!-- Own Stylesheet -->
+	<link rel="stylesheet" href="/stylesheets/app.css">
 </head>
+
 <body>
 <!-- Header -->
-    <!-- utilizo el partial header asi se comporta de la misma manera en todas las paginas -->
-    <% if (user) { %>
+	<!-- utilizo el partial header asi se comporta de la misma manera en todas las paginas -->
+	<% if (user) { %>
     <%- include('./partials/headerLogueado') %>
 <% } else { %>
     <%- include('./partials/header') %>
 <% } %>
-    <!-- /Header -->
-    <!-- Novedades -->
-    <div class="container products-wrapper">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="products-title">Resultados para "<%= query %>" </h2>
-            </div>
-            <!-- Show the "ultimos" products -->
-            <!--Hice que los productos se muestren de manera dinamica-->
-            <% if (productos.length === 0) { %>
-                <p>No se encontraron productos para "<%= query %>".</p>
-            <% } %>
-            <% for(let i = 0; i < productos.length; i++) { %>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <section class="product-box">
-                        <a href="/product/id/<%= productos[i].id %>">
-                            <figure class="product-box_image">
-                                <img src="/images/<%= productos[i].imagen %>" alt="">
-                            </figure>
-                            <article class="product-box_data">
-                                <h2><%= productos[i].nombre %></h2>
-                                <p><%= productos[i].descripcion %></p>
-                                <p>Comentarios: <%= productos[i].comentarios.length %></p>
-								<p class="publicado-por">
-									Publicado por: <strong><%= productos[i].usuario.nombreUsuario %></strong></p>
-				
-            <% } %>
-        </div>
-    </div>
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Resultados para "<%= query %>" </h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			
+			<!--Hice que los productos se muestren de manera dinamica-->
+			<% if (productos.length === 0) { %>
+				<p>No se encontraron productos para "<%= query %>".</p>
+			<% } %>
+
+			<% for( let i = 0; i < productos.length; i++ ) { %>
+				<div class="col-12 col-sm-6 col-lg-3 contenedorIndex">
+					<section class="product-box">
+							<a href="/product/id/<%= productos[i].id %>">
+								<figure class="product-box_image">
+									<img src="/images/<%= productos[i].imagen %>" alt="">
+								</figure>
+								<article class="product-box_data">
+									<h2><%= productos[i].nombre  %></h2>
+									<p><%= productos[i].descripcion %></p>
+									<p>Comentarios: <%= productos[i].comentarios.length %></p>
+
+
+								</article>
+							</a>
+						
+					</section>
+				</div>
+		<% } %>
+
+		</div>
+	</div>
+
+
 <%- include('partials/footer') %>
+
 </body>
+
+</html>

@@ -51,6 +51,13 @@ ol {
   margin: 0;
   padding: 0;
 }
+.login-error {
+    color: #ff4444;
+    font-weight: bold;
+    background-color: #ffe5e5;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
 
 a {
   display: inline-block;
@@ -580,7 +587,6 @@ textarea.form-input {
   transition: all 0.2s ease;
 }
 
-/* 🔁 Efecto cuando pasás el mouse */
 .comments .user a:hover {
   color: var(--light-blue);
   text-decoration: underline;
@@ -609,4 +615,72 @@ textarea.form-input {
     width: 100px;
     border-radius: 50%;
   }
+}
+.login-alert {
+  background-color: #fff3f3;
+  border: 1px solid #ffc1c1;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 1.5em;
+  color: var(--gray);
+  margin-top: 15px;
+}
+
+.login-alert a {
+  font-weight: bold;
+  color: var(--light-blue);
+  text-decoration: underline;
+}
+.comments .user {
+  font-size: 1.7em;
+  margin-bottom: 0.2em;
+  font-weight: bold;
+}
+
+.comments .contenido {
+  font-size: 1.5em;
+  margin-top: 0; 
+  color: var(--gray);
+}
+.imgPerfil {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.product-box_data p.publicado-por {
+  height: auto !important;
+  overflow: visible !important;
+  margin-top: 3px;  /* Ajustá el espacio a tu gusto */
+}
+
+.publicado-por strong {
+  font-weight: bold;
+  font-style: normal;
+  color: #7b4d28; /* Marrón más oscuro */
+}
+.product-box_data .publicado-por {
+  display: none;
+}
+
+.product-box:hover .publicado-por {
+  display: block;
+}
+.no-products-message {
+  background-color: #f1c4c5;  /* Fondo pastel, un poco más fuerte */
+  color: #5c391d;              /* Marrón chocolate */
+  font-size: 1.8em;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  font-style: italic;
+  width: 80%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);  /* Sombra para resaltarlo */
+  border: 1px solid #e9787a;   /* Borde rosado pastel */
+}
+
+.no-products-message::before {
+  content: "🍰 ";             /* Iconito de pastelito */
+  font-size: 1.2em;
 }

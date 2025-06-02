@@ -18,36 +18,43 @@
 <!-- Header -->
 	<!-- utilizo el partial header asi se comporta de la misma manera en todas las paginas -->
 	<% if (user) { %>
-		<%- include('./partials/headerLogueado') %>
-	<% } else { %>
-		<%- include('./partials/header') %>
-	<% } %>
+    <%- include('./partials/headerLogueado') %>
+<% } else { %>
+    <%- include('./partials/header') %>
+<% } %>
 	<!-- /Header -->
 	
 	<!-- Datos del usuario -->
-	<div class="data-container col-6">
-		<div class="d-flex align-items-center ">
-			<h1 class="main-title">
-				<%= usuario.nombreUsuario %>
-				<% if (user && user.id === usuario.id) { %>
-					<a href="/user/profile">
-						<i class="fas fa-cog"></i>
-					</a>
-				<% } %>
-			</h1>
-			<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+	<section class="info-usuario container products-wrapper">
+		<div class="row">
+			<div class="img-container offset-3 col-2">
+				<img class="imgPerfil" src="/images/<%= usuario.foto ? usuario.foto : 'default-image.png' %>" alt="Foto de perfil">
+
+			</div>
+			<div class="data-container col-6">
+				<div class="d-flex align-items-center ">
+					<h1 class="main-title">
+						<%= usuario.nombreUsuario %>
+						<% if (user && user.id === usuario.id) { %>
+							<a href="/user/profile">
+								<i class="fas fa-cog"></i>
+							</a>
+						<% } %>
+					</h1>
+
+					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+				</div>
+				<div>
+					<ul class="">
+						<li><%= usuario.email %></li>
+						<li><%= productos ? productos.length:0 %> productos publicados</li>
+						<li>200 seguidores</li>
+						<li>Total de comentarios realizados: <%= totalComentariosRecibidos %></li>
+					</ul>
+				</div>
+			</div>
 		</div>
-		<div>
-			<ul class="">
-				<li><%= usuario.email %></li>
-				<li><%= productos ? productos.length:0 %> productos publicados</li>
-				<li>200 seguidores</li>
-				<li><%= totalComentariosRecibidos %> comentarios recibidos</li>
-			</ul>
-		</div>
-	</div>
-</div>
-</section>
+	</section>
 	<!-- /Datos del usuario -->
 
 	<!-- Mis productos -->
@@ -57,13 +64,15 @@
             <h2 class="products-title">Mis productos</h2>
         </div>
 
-        <% if (productos && productos.length > 0) { %>
+
+ <% if (productos && productos.length > 0) { %>
     <% for( let i = 0; i < productos.length; i++ ) { %>
 				<div class="col-12 col-sm-6 col-lg-3 contenedorIndex">
 					<section class="product-box">
 							<a href="/product/id/<%= productos[i].id %>">
 								<figure class="product-box_image">
 									<img src="/images/<%= productos[i].imagen %>" alt="">
+
 								</figure>
 								<article class="product-box_data">
 									<h2><%= productos[i].nombre  %></h2>
@@ -78,10 +87,12 @@
 				</div>
 		<% } %>
 <% } else { %>
-    <p>Este usuario aún no cargó productos.</p>
+   <p class="no-products-message">
+  Este usuario aún no cargó productos.
+</p>
 <% } %>
 
-    </div>
+
 </div>
 
 	<!-- /Mis productos -->
