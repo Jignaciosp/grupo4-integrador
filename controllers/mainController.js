@@ -6,7 +6,7 @@ const Op = db.Sequelize.Op;
 //show se usa normalmente para mostrar un recurso (por ejmplo --> ver el detalle de un producto)
 
 const mainController = {
-   index: function (req, res) {
+    index: function (req, res) {
     Producto.findAll({
         include: [
             { association: 'usuario' },
@@ -33,7 +33,7 @@ const mainController = {
                     [Op.like]: `%${query}%`
                 }
             },
-            include: ['usuario']
+            include: ['usuario', 'comentarios']
         })
         .then(productos => {
             return res.render("search-results", {

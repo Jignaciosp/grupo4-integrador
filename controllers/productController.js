@@ -43,14 +43,14 @@ const productController = {
         return res.render("productAdd");
     },
 
-   store: (req, res) => {
-    const { nombre, descripcion } = req.body;
-    const imagen = req.file ? req.file.filename : "default.jpg";
+    store: (req, res) => {
+    const { nombre, descripcion, imagen } = req.body;
+    const imagenFinal = imagen && imagen !== "" ? "products/" + imagen : "products/default.jpg";
 
     db.Producto.create({
         nombre,
         descripcion,
-        imagen,
+        imagen: imagenFinal,
         usuarioId: req.session.user.id,
         createdAt: new Date()
     })
