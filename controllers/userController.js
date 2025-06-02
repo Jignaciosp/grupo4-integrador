@@ -21,7 +21,7 @@ const usersController = {
                 }
 
                 // Acá tomamos el nombre del archivo si subieron una imagen, si no usamos default
-                const foto = req.file ? req.file.filename : "default-image.png";
+                const foto = req.body.foto !== "" ? "users/" + req.body.foto : "default-image.png";
 
                 let usuario = {
                     nombreUsuario: username,
@@ -108,11 +108,11 @@ profile: function (req, res) {
         ]
     })
     .then(usuario => {
-      
+    
         if (!usuario) return res.send("Usuario no encontrado");
 
         // Contar total de comentarios recibidos
-       const totalComentariosRecibidos = usuario.comentarios.length
+        const totalComentariosRecibidos = usuario.comentarios.length
 
         return res.render("profile", {
             usuario,
@@ -139,8 +139,8 @@ profile: function (req, res) {
 
         if (!usuario) return res.send("Usuario no encontrado");
 
-        const totalComentariosRecibidos = usuario.productos[0].comentarios.length
-        
+        //const totalComentariosRecibidos = usuario.productos[0].comentarios.length
+        const totalComentariosRecibidos = usuario.comentarios.length;
 
         res.render("profile", {
             usuario,
