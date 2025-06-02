@@ -684,3 +684,38 @@ textarea.form-input {
   content: "🍰 ";             /* Iconito de pastelito */
   font-size: 1.2em;
 }
+.no-products-message-search {
+  background-color: #f7d6d9; /* Fondo pastel rosado, más fuerte para contraste */
+  color: #5e4b4b;           /* Marrón chocolate */
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 80%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  font-style: italic;
+  border: 1px solid #e9787a; /* Borde pastel rosado */
+}
+
+.mensaje-busqueda {
+  font-size: 1.4em;
+  margin: 0;
+}
+
+.btn-volver-search {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #e9787a; /* Rosa pastel para el botón */
+  color: #fff;
+  font-size: 1.4em;
+  padding: 6px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-volver-search:hover {
+  background-color: #b45153; /* Lavanda clara al pasar el mouse */
+  transform: translateY(-2px);
+}

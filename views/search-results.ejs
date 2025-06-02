@@ -36,8 +36,14 @@
 			
 			<!--Hice que los productos se muestren de manera dinamica-->
 			<% if (productos.length === 0) { %>
-				<p>No se encontraron productos para "<%= query %>".</p>
-			<% } %>
+  <div class="no-products-message-search">
+    <p class="mensaje-busqueda">
+       No se encontraron productos para "<%= query %>".
+    </p>
+    <a href="/" class="btn-volver-search">Volver al inicio</a>
+  </div>
+<% } %>
+
 
 			<% for( let i = 0; i < productos.length; i++ ) { %>
 				<div class="col-12 col-sm-6 col-lg-3 contenedorIndex">
